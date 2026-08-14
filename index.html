@@ -446,6 +446,156 @@ const DB = {
   }
 };
 
+// Ceska vrstva pre positioning / benefity / diferenciatory.
+// DB drzi slovenske znenie; pri trh === 'cz' sa pouzije toto.
+const CZ = {
+  enervit: {
+    bezci: {
+      usp: 'Prémiová sportovní výživa s italskou tradicí. Kompletní systém gelů, izotonických nápojů a recovery produktů – od jídla před závodem až po regeneraci. Důvěra, na kterou se můžeš spolehnout.',
+      benefits: ['Kompletní systém: gely, izotoniky, tyčinky, recovery v jednom', 'Ověřeno v extrémech Grand Tours – výživa, která pomohla Tadeji Pogačarovi k 5 titulům na Tour de France', 'Přítomnost na Prague Marathon, Prague Half, Košice Maratón', 'Italská kvalita a více než 40 let tradice', 'Recovery produkty – kategorie rostoucí +18 % ročně'],
+      diffs: [
+        {vs:'Maurten', text:'Kompletní systém (gely + recovery + izotoniky), ne jen drahé gely. Plus eventová komunita CZ/SK.'},
+        {vs:'Nutrend', text:'Premium positioning a TdF asociace. Méně mass-market, více cílená na vytrvalce.'},
+        {vs:'GU/SiS', text:'Nejsilnější eventová přítomnost v CZ/SK. 8 Tier 1 eventů – žádný konkurent to nemá.'}
+      ]
+    },
+    cyklo: {
+      usp: 'Výživa prověřená týmem UAE na Tour de France. Prémiová cyklistická výživa pro dlouhé jízdy, závody a regeneraci. Systém prověřený v profesionálním pelotonu.',
+      benefits: ['Energie týmu UAE na Tour de France', 'Long ride fueling: gely, tyčinky, izotoniky', 'Road Classics partner – Pálava, Vysočina, Ještěd', 'Recovery po etapách – proteiny a regenerace', 'Italská kvalita – tam, kde se rodí cyklistika'],
+      diffs: [
+        {vs:'Maurten', text:'Kompletní cyklo systém včetně tyčinek a recovery. Maurten má jen gely a nápoje.'},
+        {vs:'PowerBar', text:'Premium positioning vs. mass-market. Tour de France vs. supermarketový regál.'},
+        {vs:'SiS', text:'INEOS Grenadiers vs. Tour de France – srovnatelná elitní asociace, ale Enervit = celý systém.'}
+      ]
+    },
+    trail: {
+      usp: 'Vytrvalostní výživa pro hory a dlouhé tratě s převýšením. Systém gelů a izotonických nápojů navržený pro extrémní podmínky – když záleží na každém gramu a každé kalorii.',
+      benefits: ['Kompaktní gely pro minimalistický běh v terénu', 'Izotoniky pro dlouhodobou hydrataci v horách', 'Recovery po ultra závodech – proteiny, regenerace', 'Systém prověřený na Tour de France – extrémní podmínky', 'Fueling na 50+ km tratě s převýšením'],
+      diffs: [
+        {vs:'Maurten', text:'Širší sortiment včetně tyčinek a recovery. Cenově dostupnější pro běžce, kteří konzumují více na ultra.'},
+        {vs:'GU Energy', text:'Kompletní systém vs. primárně gely. Recovery řada navíc.'},
+        {vs:'Endurance', text:'Italská kvalita a TdF tradice. Mezinárodní reach a know-how vs. lokální značka.'}
+      ]
+    },
+    triatlon: {
+      usp: 'Multisportovní výživa pro plavání, cyklistiku a běh. Kompletní fueling systém pro přechody mezi disciplínami a rychlou regeneraci.',
+      benefits: ['Multisport systém – jeden brand, tři disciplíny', 'Rychlá absorpce gelů mezi disciplínami', 'Izotoniky pro dlouhodobý výkon', 'Po triatlonu – recovery drinky', 'Tour de France + maratonská důvěra v jednom'],
+      diffs: [
+        {vs:'SiS', text:'Kompletní systém včetně recovery. SiS má silný gel, ale slabší recovery řadu.'},
+        {vs:'GU', text:'Systémový přístup – ne jen gely, ale i izotoniky, tyčinky a recovery.'},
+        {vs:'Maurten', text:'Cenově dostupnější při srovnatelném výkonu gelů. Plus tyčinky a recovery navíc.'}
+      ]
+    },
+    vytrvalost: {
+      usp: 'Prémiová sportovní výživa pro každého vytrvalce. Kompletní systém od italského lídra – gely, izotoniky, tyčinky a recovery. Od tréninku po závod, od rána do večera.',
+      benefits: ['Kompletní systém: gely, izotoniky, tyčinky, recovery', 'Tým UAE na Tour de France + Prague Marathon – ověřeno na nejvyšší úrovni', 'Recovery kategorie rostoucí +18 % ročně', 'Více než 40 let italské tradice', 'Eventová komunita CZ/SK (8 Tier 1 eventů)'],
+      diffs: [
+        {vs:'Nutrend', text:'Premium vs. mass-market. Vytrvalostní fokus vs. fitness.'},
+        {vs:'Endurance', text:'Mezinárodní značka s TdF tradicí. Širší sortiment.'},
+        {vs:'Maurten', text:'Kompletní systém za rozumnou cenu. Ne jen elitní gely.'}
+      ]
+    },
+    recovery: {
+      usp: 'Regenerace je polovina výkonu. Enervit recovery systém – proteiny, regenerační nápoje a doplňky pro rychlý návrat do formy. Nejrychleji rostoucí kategorie sportovní výživy.',
+      benefits: ['Recovery = nejrychleji rostoucí kategorie (+18 % YoY)', 'Proteiny, regenerační nápoje, aminokyseliny', 'Post-race recovery po každém eventu', 'Systémový přístup: fueling + recovery = kompletní cyklus', 'Doporučení od profi sportovců'],
+      diffs: [
+        {vs:'Maurten', text:'Maurten nemá recovery produkty. Enervit pokrývá celý cyklus.'},
+        {vs:'Nutrend', text:'Cíleno na vytrvalce, ne na fitness. Premium recovery.'},
+        {vs:'SiS', text:'Širší recovery řada včetně REGO a proteinových shaků.'}
+      ]
+    },
+    medical: {
+      usp: 'Prémiová sportovní výživa s vědeckým zázemím. Ověřená v profesionálním sportu, vhodná i pro rehabilitační a recovery programy.',
+      benefits: ['Vědecky podložené složení', 'Recovery produkty pro rehabilitaci', 'Tým UAE na Tour de France – důvěra profi medicínského týmu', 'Systém pro postupný návrat do zátěže', 'Šetrné k trávení'],
+      diffs: [
+        {vs:'Nutrend', text:'Premium, vědecky orientovaný vs. mass-market.'},
+        {vs:'SiS', text:'Kompletní systém včetně recovery a rehabilitačních produktů.'},
+        {vs:'Isostar', text:'Modernější formulace a vědecký přístup.'}
+      ]
+    }
+  },
+  royalbay: {
+    bezci: {
+      usp: 'Medical-grade kompresní oblečení vyrobené v ČR. Ne fashion – funkční produkt s 25+ letou tradicí výrobce ARIES. Podpora nohou při běhu a rychlejší regenerace.',
+      benefits: ['Medical-grade certifikace – medicínsky ověřená komprese', 'Výroba v ČR (ARIES) – 25+ let zkušeností', 'O 20-40 % levnější než Compressport/CEP', 'Energy + Motion řady pro aktivní běh', 'Domácí značka – CZ/SK jazyk, logistika, podpora'],
+      diffs: [
+        {vs:'Compressport', text:'Medical-grade (ne jen fashion). CZ výroba. O 20-40 % lepší cena.'},
+        {vs:'CEP', text:'Srovnatelná medical kvalita za nižší cenu. Domácí pozice v CEE.'},
+        {vs:'STOX Energy', text:'Domácí přítomnost v CEE. Jazyk, logistika, kultura. Nižší cena.'}
+      ]
+    },
+    cyklo: {
+      usp: 'Kompresní oblečení pro cyklisty s medical-grade certifikací. Podpora nohou při dlouhých jízdách, prevence křečí a rychlejší regenerace. Vyrobeno v ČR.',
+      benefits: ['Medical-grade komprese pro nohy při dlouhém sedění', 'Prevence křečí a únavy nohou', 'Recovery po etapách – Therapy řada', 'CZ výroba ARIES – kvalita a tradice', 'Cenově dostupnější než STOX/Compressport'],
+      diffs: [
+        {vs:'Compressport', text:'Medical-grade focus (ne jen sport fashion). CZ výroba.'},
+        {vs:'2XU', text:'Silnější CEE přítomnost. Medical + recovery angle.'},
+        {vs:'STOX', text:'Domácí pozice. Nižší cena. B2B + DTC kanály.'}
+      ]
+    },
+    trail: {
+      usp: 'Komprese pro hory a nerovný terén. Extreme řada – stabilita, odolnost a medical-grade podpora pro trail běžce. Vyrobeno v ČR pro české a slovenské hory.',
+      benefits: ['Extreme řada pro náročný terén a převýšení', 'Stabilita na nerovném povrchu', 'Medical-grade – podpora kloubů a svalů v terénu', 'CZ výroba – odolné materiály', 'Cenově dostupnější než Compressport Trail řada'],
+      diffs: [
+        {vs:'Compressport', text:'Medical-grade focus. Cenově dostupnější. Domácí značka pro CZ/SK trail.'},
+        {vs:'CEP', text:'Trail-specific produkty. Lepší cena. Lokální podpora.'},
+        {vs:'2XU', text:'CEE trail komunita. Jazyk a kultura. Medical certifikace.'}
+      ]
+    },
+    triatlon: {
+      usp: 'Kompresní oblečení pro triatlon – od plavání po běh. Medical-grade podpora v každé disciplíně a rychlejší recovery mezi nimi.',
+      benefits: ['Multi-disciplinární podpora', 'Recovery mezi disciplínami', 'Medical-grade certifikace', 'Motion řada pro flexibilitu', 'CZ výroba – kvalita a dostupnost'],
+      diffs: [
+        {vs:'2XU', text:'Silnější CEE přítomnost a nižší cena při srovnatelné kvalitě.'},
+        {vs:'Compressport', text:'Medical-grade focus. Cenově dostupnější.'},
+        {vs:'CEP', text:'Stejný medical background (medi vs ARIES). Nižší cena.'}
+      ]
+    },
+    vytrvalost: {
+      usp: 'Medical-grade kompresní oblečení pro každého vytrvalce. Výroba v ČR, 25+ let zkušeností. Výkon a recovery v jednom produktu.',
+      benefits: ['Medical-grade certifikace', 'CZ výroba (ARIES) – 25+ let', 'Široké portfolio: Energy, Therapy, Motion, Extreme', 'O 20-40 % levnější než premium konkurence', 'Domácí značka – jazyk, logistika, podpora'],
+      diffs: [
+        {vs:'STOX', text:'Domácí CEE pozice. Nižší cena. B2B + DTC.'},
+        {vs:'Compressport', text:'Medical-grade (ne fashion). CZ výroba. Lepší cena.'},
+        {vs:'CEP', text:'Srovnatelná kvalita za nižší cenu. Lokální dostupnost.'}
+      ]
+    },
+    recovery: {
+      usp: 'Regenerace nohou po výkonu. ROYAL BAY Therapy a Relax řady – medical-grade komprese speciálně pro recovery. Ověřená tradice ARIES v medicínské kompresi.',
+      benefits: ['Therapy řada – cílená recovery komprese', 'Relax řada – domácí použití a odpočinek', 'Medical-grade certifikace', '25+ let v medicínské kompresi', 'Ideální po běhu, cyklistice, triatlonu'],
+      diffs: [
+        {vs:'STOX Recovery', text:'Domácí dostupnost. Nižší cena. Medical background ARIES.'},
+        {vs:'CEP Recovery', text:'Srovnatelná medical kvalita. Lepší cena a dostupnost v CEE.'},
+        {vs:'Compressport', text:'Specializované Therapy a Relax řady – ne jen „recovery verze" sportovních ponožek.'}
+      ]
+    },
+    medical: {
+      usp: 'Medicínsky certifikovaná komprese od ARIES – 25+ let v lékařské kompresi. Graduated, targeted i medical komprese. Pro fyzioterapeuty, rehabilitaci a pacienty.',
+      benefits: ['Medicínská certifikace – není to jen „kompresní oblečení"', 'Graduated, targeted a medical komprese v portfoliu', 'ARIES – 25+ let v lékařské kompresi', 'Výroba v ČR – kvalita a rychlá dostupnost', 'Therapy řada pro rehabilitaci'],
+      diffs: [
+        {vs:'CEP/medi', text:'Srovnatelná medical kvalita. Cenově dostupnější. CZ výroba.'},
+        {vs:'Compressport', text:'Skutečná medical certifikace, ne jen sportovní komprese.'},
+        {vs:'Generic medical', text:'Sportovní design a komfort plus medical funkce.'}
+      ]
+    }
+  }
+};
+
+const CONTEXT_CZ = {
+  enervit: 'Enervit je v CZ/SK konkurenčně silný díky eventové přítomnosti (8 Tier 1 eventů). Největší hrozba: Nutrend (CZ #1 povědomí, nízká cena) a Maurten (inovační leader, rostoucí přítomnost). SK trh je underserved – příležitost.',
+  royalbay: 'ROYAL BAY má unikátní pozici: medical-grade + CZ výroba + cenová dostupnost. V CEE nemá žádný konkurent silný DTC kanál. STOX je benchmark (4,5 M EUR), ale v CEE neoperuje. Shopify migrace = klíč k DTC škálování.'
+};
+
+// Vrati positioning/benefity/diferenciatory v jazyku zvoleneho trhu.
+function langFields(brand, segment, trh){
+  const base = DB[brand][segment];
+  if(trh === 'cz' && CZ[brand] && CZ[brand][segment]) return CZ[brand][segment];
+  return base;
+}
+function langContext(brand, trh){
+  return trh === 'cz' ? CONTEXT_CZ[brand] : CONTEXT[brand];
+}
+
 const CONTEXT = {
   enervit: 'Enervit je v CZ/SK konkurenčne silný vďaka eventovej prítomnosti (8 Tier 1 eventov). Najväčšia hrozba: Nutrend (CZ #1 povedomie, nízka cena) a Maurten (inovačný leader, rastúca prítomnosť). SK trh je underserved – príležitosť.',
   royalbay: 'ROYAL BAY má unikátnu pozíciu: medical-grade + CZ výroba + cenová dostupnosť. V CEE nemá žiadny konkurent silný DTC kanál. STOX je benchmark (4,5 M EUR), ale v CEE neoperuje. Shopify migrácia = kľúč k DTC škálovaniu.'
@@ -485,11 +635,13 @@ function render(){
   const trhName   = trh === 'cz' ? 'Česko' : 'Slovensko';
   current = {brand, brandName, segment, segmentName: labelOf(elSeg), trh, trhName, channel, channelName: labelOf(elChan), d};
 
-  const benefits = d.benefits
+  const L = langFields(brand, segment, trh);
+
+  const benefits = L.benefits
     .map((b,i) => '<li><span class="n">' + (i+1) + '</span><span>' + esc(b) + '</span></li>')
     .join('');
 
-  const diffs = d.diffs
+  const diffs = L.diffs
     .map(x => '<div class="diff"><span class="vs">vs ' + esc(x.vs) + '</span><span>' + esc(x.text) + '</span></div>')
     .join('');
 
@@ -514,9 +666,9 @@ function render(){
         '<p class="combo"><em>' + esc(brandName) + '</em> · ' + esc(current.segmentName) + ' · ' + esc(trhName) + '</p>' +
         '<span class="combo-sub">Zvýraznený kanál: ' + esc(current.channelName) + '</span>' +
       '</div>' +
-      '<p class="note">' + esc(CONTEXT[brand]) + '</p>' +
+      '<p class="note">' + esc(langContext(brand, trh)) + '</p>' +
       '<h2>Positioning</h2>' +
-      '<p class="usp">' + esc(d.usp) + '</p>' +
+      '<p class="usp">' + esc(L.usp) + '</p>' +
     '</div>' +
     '<div class="panel"><h2>Benefity</h2><ul class="benefits">' + benefits + '</ul></div>' +
     '<div class="panel"><h2>Diferenciátory vs konkurencia</h2><div class="diffs">' + diffs + '</div></div>' +
@@ -560,22 +712,22 @@ async function copyAndTell(text, okMsg){
 }
 
 function block(trh){
-  const c = current, d = c.d;
+  const c = current, d = c.d, L = langFields(c.brand, c.segment, trh);
   const trhName = trh === 'cz' ? 'Česko' : 'Slovensko';
   return 'USP: ' + c.brandName + ' · ' + c.segmentName + ' · ' + trhName + '\n\n' +
-    d.usp + '\n\n' +
-    'Benefity:\n' + d.benefits.map((b,i) => (i+1) + '. ' + b).join('\n') + '\n\n' +
-    'Diferenciátory:\n' + d.diffs.map(x => 'vs ' + x.vs + ': ' + x.text).join('\n') + '\n\n' +
+    L.usp + '\n\n' +
+    'Benefity:\n' + L.benefits.map((b,i) => (i+1) + '. ' + b).join('\n') + '\n\n' +
+    'Diferenciátory:\n' + L.diffs.map(x => 'vs ' + x.vs + ': ' + x.text).join('\n') + '\n\n' +
     'Copy:\n' + CHANNELS.map(ch => CHANNEL_LABELS[ch] + ': ' + d.copy[ch][trh]).join('\n');
 }
 
 function markdown(trh){
-  const c = current, d = c.d;
+  const c = current, d = c.d, L = langFields(c.brand, c.segment, trh);
   const trhName = trh === 'cz' ? 'Česko' : 'Slovensko';
   return '# USP: ' + c.brandName + ' · ' + c.segmentName + ' · ' + trhName + '\n\n' +
-    '## Positioning\n' + d.usp + '\n\n' +
-    '## Benefity\n' + d.benefits.map((b,i) => (i+1) + '. ' + b).join('\n') + '\n\n' +
-    '## Diferenciátory\n' + d.diffs.map(x => '- **vs ' + x.vs + ':** ' + x.text).join('\n') + '\n\n' +
+    '## Positioning\n' + L.usp + '\n\n' +
+    '## Benefity\n' + L.benefits.map((b,i) => (i+1) + '. ' + b).join('\n') + '\n\n' +
+    '## Diferenciátory\n' + L.diffs.map(x => '- **vs ' + x.vs + ':** ' + x.text).join('\n') + '\n\n' +
     '## Copy variácie\n' + CHANNELS.map(ch => '### ' + CHANNEL_LABELS[ch] + '\n> ' + d.copy[ch][trh]).join('\n\n');
 }
 
