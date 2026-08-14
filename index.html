@@ -182,15 +182,7 @@ footer strong{color:var(--ink);font-weight:600}
       </div>
       <div class="field">
         <label for="segment">Segment</label>
-        <select id="segment">
-          <option value="vytrvalost">Značka celkovo (obecné)</option>
-          <option value="bezci">Bežci (cestný beh)</option>
-          <option value="cyklo">Cyklisti</option>
-          <option value="trail">Trail running</option>
-          <option value="triatlon">Triatlon</option>
-          <option value="recovery">Recovery / regenerácia</option>
-          <option value="medical">Medical / rehabilitácia</option>
-        </select>
+        <select id="segment"><!-- napĺňa sa podľa značky, viď syncSegments() --></select>
       </div>
       <div class="field">
         <label for="trh">Trh</label>
@@ -319,21 +311,6 @@ const DB = {
         google: {cz: 'Enervit Recovery | Špičková regenerace a proteiny | Připravte tělo na další trénink | [DOPRAVA]', sk: 'Enervit Recovery | Špičková regenerácia a proteíny | Pripravte telo na ďalší tréning | [DOPRAVA]'},
         email: {cz: 'Víte, že recovery je nejrychleji rostoucí kategorie sportovní výživy (+18 % ročně)? Enervit recovery systém – proteiny a regenerace po každém tréninku.', sk: 'Viete, že recovery je najrýchlejšie rastúca kategória športovej výživy (+18 % ročne)? Enervit recovery systém – proteíny a regenerácia po každom tréningu.'},
         web: {cz: 'Enervit Recovery. Regenerace je polovinou výkonu. Proteiny, regenerační nápoje a systém pro rychlý návrat do formy.', sk: 'Enervit Recovery. Regenerácia je polovicou výkonu. Proteíny, regeneračné nápoje a systém pre rýchly návrat do formy.'}
-      }
-    },
-    medical: {
-      usp: 'Prémiová športová výživa s vedeckým zázemím. Overená v profesionálnom športe, vhodná aj pre rehabilitačné a recovery programy.',
-      benefits: ['Vedecky podložené zloženie', 'Recovery produkty pre rehabilitáciu', 'Tím UAE na Tour de France – dôvera profi medicínskeho tímu', 'Systém pre postupný návrat do záťaže', 'Šetrné k tráveniu'],
-      diffs: [
-        {vs:'Nutrend', text:'Premium, vedecky orientovaný vs. mass-market.'},
-        {vs:'SiS', text:'Kompletný systém vrátane recovery a rehabilitačných produktov.'},
-        {vs:'Isostar', text:'Modernejšia formulácia a vedecký prístup.'}
-      ],
-      copy: {
-        meta: {cz: 'Enervit | Sportovní výživa s vědeckým základem | Podpora regenerace a bezpečného návratu k pohybu 🔬', sk: 'Enervit | Športová výživa s vedeckým základom | Podpora regenerácie a bezpečného návratu k pohybu 🔬'},
-        google: {cz: 'Enervit – vědecky podložená sportovní výživa | Recovery a rehabilitace | Šetrné k trávení', sk: 'Enervit – vedecky podložená športová výživa | Recovery a rehabilitácia | Šetrné k tráveniu'},
-        email: {cz: 'Návrat po zranění? Enervit recovery systém je navržen i pro rehabilitační programy. Vědecky podloženo, šetrné k trávení.', sk: 'Návrat po zranení? Enervit recovery systém je navrhnutý aj pre rehabilitačné programy. Vedecky podložené, šetrné k tráveniu.'},
-        web: {cz: 'Restartujte tělo po pauze. Vědecky vyladěná výživa pro bezpečný návrat k tréninku.', sk: 'Reštartujte telo po pauze. Vedecky vyladená výživa pre bezpečný návrat k tréningu.'}
       }
     }
   },
@@ -503,15 +480,6 @@ const CZ = {
         {vs:'Nutrend', text:'Cíleno na vytrvalce, ne na fitness. Premium recovery.'},
         {vs:'SiS', text:'Širší recovery řada včetně REGO a proteinových shaků.'}
       ]
-    },
-    medical: {
-      usp: 'Prémiová sportovní výživa s vědeckým zázemím. Ověřená v profesionálním sportu, vhodná i pro rehabilitační a recovery programy.',
-      benefits: ['Vědecky podložené složení', 'Recovery produkty pro rehabilitaci', 'Tým UAE na Tour de France – důvěra profi medicínského týmu', 'Systém pro postupný návrat do zátěže', 'Šetrné k trávení'],
-      diffs: [
-        {vs:'Nutrend', text:'Premium, vědecky orientovaný vs. mass-market.'},
-        {vs:'SiS', text:'Kompletní systém včetně recovery a rehabilitačních produktů.'},
-        {vs:'Isostar', text:'Modernější formulace a vědecký přístup.'}
-      ]
     }
   },
   royalbay: {
@@ -613,7 +581,27 @@ const elChan  = document.getElementById('channel');
 const elOut   = document.getElementById('result');
 const elToast = document.getElementById('toast');
 
+// Poradie a nazvy segmentov. Zobrazia sa len tie, ktore dana znacka naozaj ma —
+// Enervit nema Medical/rehabilitaciu (vyradene 15.8.2026 na odporucanie Adely).
+const SEGMENTS = [
+  {v:'vytrvalost', l:'Značka celkovo (obecné)'},
+  {v:'bezci',      l:'Bežci (cestný beh)'},
+  {v:'cyklo',      l:'Cyklisti'},
+  {v:'trail',      l:'Trail running'},
+  {v:'triatlon',   l:'Triatlon'},
+  {v:'recovery',   l:'Recovery / regenerácia'},
+  {v:'medical',    l:'Medical / rehabilitácia'}
+];
+
 let current = null;
+
+function syncSegments(){
+  const brand = elBrand.value;
+  const prev  = elSeg.value;
+  const avail = SEGMENTS.filter(x => DB[brand] && DB[brand][x.v]);
+  elSeg.innerHTML = avail.map(x => '<option value="' + x.v + '">' + x.l + '</option>').join('');
+  elSeg.value = avail.some(x => x.v === prev) ? prev : avail[0].v;
+}
 
 function esc(s){
   return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -735,7 +723,8 @@ const FOOTNOTE = '\n\n---\n[DOPRAVA] = doplniť podľa aktuálnych podmienok.\n'
   'Google Ads texty sú koncept — headline max 30 znakov, description max 90.\n' +
   'VITAR Sport · Content & Brand Engine · dáta k 17. 2. 2026\n';
 
-[elBrand, elSeg, elTrh, elChan].forEach(el => el.addEventListener('change', render));
+elBrand.addEventListener('change', () => { syncSegments(); render(); });
+[elSeg, elTrh, elChan].forEach(el => el.addEventListener('change', render));
 
 elOut.addEventListener('click', e => {
   const card = e.target.closest('.copy');
@@ -758,6 +747,7 @@ document.getElementById('btnMd').addEventListener('click', () => {
   copyAndTell(markdown('cz') + '\n\n' + markdown('sk') + FOOTNOTE, 'Markdown (CZ + SK) skopírovaný');
 });
 
+syncSegments();
 render();
 </script>
 
