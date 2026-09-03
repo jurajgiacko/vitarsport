@@ -165,9 +165,9 @@ footer strong{color:var(--ink);font-weight:600}
   </header>
 
   <p class="banner">
-    <b>Pred nasadením:</b> <b>[DOPRAVA]</b> je placeholder — konkrétny prísľub doplňte podľa aktuálnych podmienok,
-    aj tvrdenie „expresné doručenie“ treba potvrdiť. Počty znakov sú kontrolované voči limitom platforiem;
-    po nahradení <b>[DOPRAVA]</b> reálnym textom si dĺžku prekontrolujte znova.
+    <b>Overené na weboch 20. 8. 2026.</b> Doprava zdarma nad 1 500 Kč (CZ) a nad 70 € (SK), balné vždy zdarma.
+    Klub <b>Enervit Team</b> = stála 10% zľava po registrácii + ďalších 10 % na športové ponožky ROYAL BAY.
+    Počty znakov sú kontrolované voči limitom platforiem.
   </p>
 
   <div class="controls">
@@ -248,66 +248,66 @@ const CHANNELS = [
 const DATA = {
   enervit: {
     cz: {
-      positioning: 'Kompletní sportovní výživa s italskou tradicí – gely, izotoniky, tyčinky i recovery na jednom místě. Více než 40 let zkušeností a stejná výživa, jakou používá tým UAE na Tour de France. Funguje na Grand Tour i na tvé první desítce.',
+      positioning: 'Kompletní sportovní výživa s italskou tradicí – před sportem, během něj i po výkonu. Stejnou výživu používá tým UAE na Tour de France, Jannik Sinner i Nadia Battocletti. A funguje stejně dobře na tvé první desítce.',
       A: {
-        meta:   {primary:'Víc než 40 let italské tradice. Gely, izotoniky, tyčinky i recovery – jeden systém od tréninku po regeneraci.', headline:'Italská výživa už přes 40 let', desc:'Kompletní systém'},
-        search: {h1:'Enervit – italská výživa', h2:'Přes 40 let tradice', h3:'Gely, izotoniky, recovery',
-                 d1:'Kompletní sportovní výživa od tréninku po regeneraci. Italská kvalita už přes 40 let.',
-                 d2:'Gely, izotoniky, tyčinky i recovery. Jeden systém pro celý tvůj sportovní rok.'},
-        email:  {subject:'Jedna značka od tréninku po regeneraci', preheader:'Enervit dělá sportovní výživu přes 40 let – a všechno do sebe zapadá.'},
-        web:    {h1:'Italská sportovní výživa už přes 40 let', sub:'Kompletní systém od tréninku přes závod až po regeneraci. Gely, izotoniky, tyčinky, recovery.'}
+        meta:   {primary:'Před sportem, během něj i po výkonu. Enervit pokrývá celý tvůj trénink – energie, hydratace i regenerace.', headline:'Před, během i po sportu', desc:'Celý cyklus'},
+        search: {h1:'Enervit – italská výživa', h2:'Před, během i po sportu', h3:'Energie i regenerace',
+                 d1:'Kompletní řada pro energii, hydrataci i regeneraci. Italská kvalita už přes 40 let.',
+                 d2:'Před sportem, během něj i po výkonu. Všechno od jedné značky.'},
+        email:  {subject:'Před sportem, během něj i po výkonu', preheader:'Enervit pokrývá celý cyklus – energii, hydrataci i regeneraci.'},
+        web:    {h1:'Před sportem, během něj i po výkonu', sub:'Kompletní řada Enervit – energie, hydratace a regenerace od jedné italské značky s více než 40 lety zkušeností.'}
       },
       B: {
-        meta:   {primary:'Všechno pro trénink i závod na jednom místě. Většina produktů skladem, expresní doručení. [DOPRAVA]', headline:'Většina zboží skladem', desc:'Expresní doručení'},
-        search: {h1:'Enervit e-shop', h2:'Většina zboží skladem', h3:'Expresní doručení',
-                 d1:'Výživa pro trénink, závod i regeneraci na jednom místě. Většina produktů skladem.',
-                 d2:'Nemusíš objednávat na třech e-shopech. Expresní doručení, poradenství k výběru.'},
-        email:  {subject:'Všechno pro sport na jednom místě', preheader:'Většina produktů skladem, expresní doručení. [DOPRAVA]'},
-        web:    {h1:'Všechno pro tvůj sport na jednom místě', sub:'Většina produktů skladem, expresní doručení a poradenství k výběru. [DOPRAVA]'}
+        meta:   {primary:'Registrací získáš stálou 10% slevu. Doprava zdarma nad 1 500 Kč, balné vždy zdarma.', headline:'Sleva 10 % po registraci', desc:'Doprava od 1 500 Kč'},
+        search: {h1:'Enervit e-shop', h2:'10% sleva po registraci', h3:'Doprava zdarma od 1500 Kč',
+                 d1:'Staň se členem Enervit Teamu a měj stálou 10% slevu. Doprava zdarma nad 1 500 Kč.',
+                 d2:'Balné vždy zdarma. Osobní odběr v Tišnově i na partnerských prodejnách.'},
+        email:  {subject:'Stálá sleva 10 % pro členy Enervit Teamu', preheader:'Registrace je zdarma. Doprava zdarma nad 1 500 Kč, balné vždy.'},
+        web:    {h1:'Staň se členem Enervit Teamu', sub:'Stálá 10% sleva na e-shopu a dalších 10 % na sportovní ponožky ROYAL BAY. Doprava zdarma nad 1 500 Kč, balné vždy zdarma.'}
       },
       C: {
-        meta:   {primary:'Stejná výživa, jakou používá tým UAE na Tour de France. Funguje Pogačarovi i tobě na první desítce.', headline:'Výživa týmu UAE na Tour', desc:'Ověřeno v Grand Tours'},
-        search: {h1:'Výživa týmu UAE na Tour', h2:'Ověřeno v Grand Tours', h3:'Enervit pro každého',
-                 d1:'Stejná výživa, jakou jede tým UAE na Tour de France. A funguje i na tvé první desítce.',
-                 d2:'Pomohla Tadeji Pogačarovi k pěti titulům. Teď je na e-shopu i pro tebe.'},
-        email:  {subject:'Co jí tým UAE na Tour de France', preheader:'Ta samá řada je i pro tebe – ať běháš pětku nebo ultra.'},
-        web:    {h1:'Výživa, která pomohla Pogačarovi k pěti titulům', sub:'Tým UAE na Tour de France jede na Enervitu. Ta samá řada funguje i na tvém nedělním výběhu.'}
+        meta:   {primary:'Pogačar na Tour. Sinner na kurtu. Battocletti na dráze. Stejná výživa – a funguje i na tvé první desítce.', headline:'Volba Pogačara i Sinnera', desc:'Ověřeno na špičce'},
+        search: {h1:'Výživa týmu UAE na Tour', h2:'Volí ji i Jannik Sinner', h3:'Enervit pro každý sport',
+                 d1:'Tour de France, tenisové kurty i atletická dráha. Enervit volí špička napříč sporty.',
+                 d2:'Pomohla Pogačarovi k pěti titulům na Tour. Teď je na e-shopu i pro tebe.'},
+        email:  {subject:'Co jedí Pogačar, Sinner a Battocletti', preheader:'Není to výživa jen pro cyklisty – a funguje i na tvé první desítce.'},
+        web:    {h1:'Volba Pogačara, Sinnera i Battocletti', sub:'Tým UAE na Tour, Jannik Sinner na kurtu, Nadia Battocletti na dráze, Francesco Puppi na trailu. Stejná řada je i pro tebe.'}
       },
       diffs: [
         {vs:'Nutrend', text:'Nutrend je fitness-first a mass-market. Enervit je stavěný pro vytrvalost a má za sebou Grand Tours.'},
-        {vs:'Maurten', text:'Maurten stojí 2–3× víc (65–90 Kč/gel) a nabízí jen gely a nápoje. Enervit pokrývá celý cyklus včetně recovery.'},
+        {vs:'Maurten', text:'Maurten stojí 2–3× víc (65–90 Kč/gel) a nabízí jen gely a nápoje. Enervit pokrývá před, během i po.'},
         {vs:'GU / SiS / PowerBar', text:'Žádný z nich nemá v CZ/SK eventovou přítomnost ani lokální tým. Enervit je na osmi Tier 1 eventech.'}
       ]
     },
     sk: {
-      positioning: 'Kompletná športová výživa s talianskou tradíciou – gély, izotoniky, tyčinky aj recovery na jednom mieste. Viac ako 40 rokov skúseností a rovnaká výživa, akú používa tím UAE na Tour de France. Funguje na Grand Tour aj na tvojej prvej desiatke.',
+      positioning: 'Kompletná športová výživa s talianskou tradíciou – pred športom, počas neho aj po výkone. Rovnakú výživu používa tím UAE na Tour de France, Jannik Sinner aj Nadia Battocletti. A funguje rovnako dobre na tvojej prvej desiatke.',
       A: {
-        meta:   {primary:'Viac ako 40 rokov talianskej tradície. Gély, izotoniky, tyčinky aj recovery – jeden systém od tréningu po regeneráciu.', headline:'Talianska výživa vyše 40 rokov', desc:'Kompletný systém'},
-        search: {h1:'Enervit – talianska výživa', h2:'Vyše 40 rokov tradície', h3:'Gély, izotoniky, recovery',
-                 d1:'Kompletná športová výživa od tréningu po regeneráciu. Talianska kvalita vyše 40 rokov.',
-                 d2:'Gély, izotoniky, tyčinky aj recovery. Jeden systém na celý tvoj športový rok.'},
-        email:  {subject:'Jedna značka od tréningu po regeneráciu', preheader:'Enervit robí športovú výživu vyše 40 rokov – a všetko do seba zapadá.'},
-        web:    {h1:'Talianska športová výživa už vyše 40 rokov', sub:'Kompletný systém od tréningu cez preteky až po regeneráciu. Gély, izotoniky, tyčinky, recovery.'}
+        meta:   {primary:'Pred športom, počas neho aj po výkone. Enervit pokrýva celý tvoj tréning – energia, hydratácia aj regenerácia.', headline:'Pred, počas aj po športe', desc:'Celý cyklus'},
+        search: {h1:'Enervit – talianska výživa', h2:'Pred, počas aj po športe', h3:'Energia aj regenerácia',
+                 d1:'Kompletná rada pre energiu, hydratáciu aj regeneráciu. Talianska kvalita vyše 40 rokov.',
+                 d2:'Pred športom, počas neho aj po výkone. Všetko od jednej značky.'},
+        email:  {subject:'Pred športom, počas neho aj po výkone', preheader:'Enervit pokrýva celý cyklus – energiu, hydratáciu aj regeneráciu.'},
+        web:    {h1:'Pred športom, počas neho aj po výkone', sub:'Kompletná rada Enervit – energia, hydratácia a regenerácia od jednej talianskej značky s vyše 40 rokmi skúseností.'}
       },
       B: {
-        meta:   {primary:'Všetko na tréning aj preteky na jednom mieste. Väčšina produktov skladom, expresné doručenie. [DOPRAVA]', headline:'Väčšina tovaru skladom', desc:'Expresné doručenie'},
-        search: {h1:'Enervit e-shop', h2:'Väčšina tovaru skladom', h3:'Expresné doručenie',
-                 d1:'Výživa na tréning, preteky aj regeneráciu na jednom mieste. Väčšina produktov skladom.',
-                 d2:'Nemusíš objednávať na troch e-shopoch. Expresné doručenie, poradenstvo pri výbere.'},
-        email:  {subject:'Všetko pre šport na jednom mieste', preheader:'Väčšina produktov skladom, expresné doručenie. [DOPRAVA]'},
-        web:    {h1:'Všetko pre tvoj šport na jednom mieste', sub:'Väčšina produktov skladom, expresné doručenie a poradenstvo pri výbere. [DOPRAVA]'}
+        meta:   {primary:'Registráciou získaš stálu 10% zľavu. Doprava zadarmo nad 70 €, balné vždy zadarmo.', headline:'Zľava 10 % po registrácii', desc:'Doprava od 70 €'},
+        search: {h1:'Enervit e-shop', h2:'10% zľava po registrácii', h3:'Doprava zadarmo od 70 €',
+                 d1:'Staň sa členom Enervit Teamu a maj stálu 10% zľavu. Doprava zadarmo nad 70 €.',
+                 d2:'Balné vždy zadarmo. Osobný odber v Bratislave, Trnave aj Liptovskom Mikuláši.'},
+        email:  {subject:'Stála zľava 10 % pre členov Enervit Teamu', preheader:'Registrácia je zadarmo. Doprava zadarmo nad 70 €, balné vždy.'},
+        web:    {h1:'Staň sa členom Enervit Teamu', sub:'Stála 10% zľava na e-shope a ďalších 10 % na športové ponožky ROYAL BAY. Doprava zadarmo nad 70 €, balné vždy zadarmo.'}
       },
       C: {
-        meta:   {primary:'Rovnaká výživa, akú používa tím UAE na Tour de France. Funguje Pogačarovi aj tebe na prvej desiatke.', headline:'Výživa tímu UAE na Tour', desc:'Overené v Grand Tours'},
-        search: {h1:'Výživa tímu UAE na Tour', h2:'Overené v Grand Tours', h3:'Enervit pre každého',
-                 d1:'Rovnaká výživa, akú ide tím UAE na Tour de France. A funguje aj na tvojej prvej desiatke.',
-                 d2:'Pomohla Tadejovi Pogačarovi k piatim titulom. Teraz je na e-shope aj pre teba.'},
-        email:  {subject:'Čo je tím UAE na Tour de France', preheader:'Tá istá rada je aj pre teba – či bežíš päťku alebo ultra.'},
-        web:    {h1:'Výživa, ktorá pomohla Pogačarovi k piatim titulom', sub:'Tím UAE na Tour de France ide na Enervite. Tá istá rada funguje aj na tvojom nedeľnom výbehu.'}
+        meta:   {primary:'Pogačar na Tour. Sinner na kurte. Battocletti na dráhe. Rovnaká výživa – a funguje aj na tvojej prvej desiatke.', headline:'Voľba Pogačara aj Sinnera', desc:'Overené na špičke'},
+        search: {h1:'Výživa tímu UAE na Tour', h2:'Volí ju aj Jannik Sinner', h3:'Enervit pre každý šport',
+                 d1:'Tour de France, tenisové kurty aj atletická dráha. Enervit volí špička naprieč športmi.',
+                 d2:'Pomohla Pogačarovi k piatim titulom na Tour. Teraz je na e-shope aj pre teba.'},
+        email:  {subject:'Čo jedia Pogačar, Sinner a Battocletti', preheader:'Nie je to výživa len pre cyklistov – a funguje aj na tvojej prvej desiatke.'},
+        web:    {h1:'Voľba Pogačara, Sinnera aj Battocletti', sub:'Tím UAE na Tour, Jannik Sinner na kurte, Nadia Battocletti na dráhe, Francesco Puppi na traili. Tá istá rada je aj pre teba.'}
       },
       diffs: [
         {vs:'Nutrend', text:'Nutrend je fitness-first a mass-market. Enervit je stavaný pre vytrvalosť a má za sebou Grand Tours.'},
-        {vs:'Maurten', text:'Maurten stojí 2–3× viac (65–90 Kč/gél) a ponúka len gély a nápoje. Enervit pokrýva celý cyklus vrátane recovery.'},
+        {vs:'Maurten', text:'Maurten stojí 2–3× viac (65–90 Kč/gél) a ponúka len gély a nápoje. Enervit pokrýva pred, počas aj po.'},
         {vs:'GU / SiS / PowerBar', text:'Žiadny z nich nemá v CZ/SK eventovú prítomnosť ani lokálny tím. Enervit je na ôsmich Tier 1 eventoch.'}
       ]
     }
@@ -315,30 +315,30 @@ const DATA = {
 
   royalbay: {
     cz: {
-      positioning: 'Medical-grade kompresní oblečení vyrobené v ČR. Za ROYAL BAY stojí ARIES s více než 25 lety v lékařské kompresi – věda, ne fashion trend. Podpora nohou při sportu i rychlejší regenerace po něm.',
+      positioning: 'Medical-grade kompresní oblečení vyrobené v ČR. Za ROYAL BAY stojí ARIES s více než 25 lety v lékařské kompresi – věda, ne fashion trend. Komprese, která funguje pro každý pohyb.',
       A: {
         meta:   {primary:'Věda, ne fashion trend. Medical-grade komprese vyrobená v ČR, za kterou stojí 25+ let zkušeností ARIES.', headline:'Věda, ne fashion trend', desc:'Vyrobeno v ČR'},
-        search: {h1:'ROYAL BAY komprese', h2:'Věda, ne fashion trend', h3:'Vyrobeno v ČR',
+        search: {h1:'ROYAL BAY komprese', h2:'Věda, ne fashion trend', h3:'České kompresky',
                  d1:'Medical-grade komprese vyrobená v ČR. Za ní 25+ let zkušeností z lékařské komprese.',
                  d2:'Není to fashion doplněk. Je to funkční produkt od specialistů ARIES.'},
         email:  {subject:'Věda, ne fashion trend', preheader:'ROYAL BAY – medical-grade komprese vyrobená v ČR firmou ARIES.'},
         web:    {h1:'Věda, ne fashion trend', sub:'Medical-grade komprese vyrobená v ČR. Za ROYAL BAY stojí 25+ let zkušeností ARIES z lékařské komprese.'}
       },
       B: {
-        meta:   {primary:'Energy na výkon, Therapy na regeneraci, Extreme do terénu. Většina velikostí skladem. [DOPRAVA]', headline:'Většina velikostí skladem', desc:'Expresní doručení'},
-        search: {h1:'ROYAL BAY e-shop', h2:'Většina velikostí skladem', h3:'Expresní doručení',
-                 d1:'Energy, Motion, Therapy, Extreme. Kompletní řady pro výkon i regeneraci na jednom místě.',
-                 d2:'Většina velikostí skladem, expresní doručení, poradenství k výběru velikosti.'},
-        email:  {subject:'Řada na výkon i na regeneraci', preheader:'Energy, Motion, Therapy, Extreme – většinu velikostí máme skladem.'},
-        web:    {h1:'Komprese pro výkon i regeneraci', sub:'Energy, Motion, Therapy, Extreme. Většina velikostí skladem, expresní doručení. [DOPRAVA]'}
+        meta:   {primary:'Energy, Motion, Air, Therapy i Extreme – komprese pro každý pohyb. Doprava zdarma nad 1 500 Kč.', headline:'Doprava zdarma od 1500 Kč', desc:'Řady pro každý pohyb'},
+        search: {h1:'ROYAL BAY e-shop', h2:'Doprava zdarma od 1500 Kč', h3:'Podkolenky i návleky',
+                 d1:'Energy, Motion, Air, Therapy, Extreme. Podkolenky, návleky, šortky i ponožky.',
+                 d2:'Komprese pro výkon i regeneraci. Doprava zdarma při nákupu nad 1 500 Kč.'},
+        email:  {subject:'Komprese pro výkon i regeneraci', preheader:'Energy, Motion, Air, Therapy, Extreme – doprava zdarma nad 1 500 Kč.'},
+        web:    {h1:'Komprese, která funguje pro každý pohyb', sub:'Podkolenky, lýtkové i stehenní návleky, šortky a ponožky. Řady Energy, Motion, Air, Therapy a Extreme. Doprava zdarma nad 1 500 Kč.'}
       },
       C: {
-        meta:   {primary:'Komprese od ARIES – firmy, která 25+ let dělá lékařskou kompresi. Teď i pro tvůj běh, kolo nebo regeneraci.', headline:'25+ let lékařské komprese', desc:'Odbornost ARIES'},
-        search: {h1:'Komprese od ARIES', h2:'25+ let lékařské komprese', h3:'Ověřeno pro sport',
+        meta:   {primary:'Komprese od ARIES – firmy, která 25+ let dělá lékařskou kompresi. Od vrcholových atletů po maratonské běžce.', headline:'25+ let lékařské komprese', desc:'Odbornost ARIES'},
+        search: {h1:'Komprese od ARIES', h2:'25+ let lékařské komprese', h3:'Věří jí profíci',
                  d1:'ARIES dělá lékařskou kompresi přes 25 let. ROYAL BAY je ta samá odbornost pro sport.',
-                 d2:'Stejná technologie jako v lékařské kompresi – jen v podobě na trénink.'},
-        email:  {subject:'25 let lékařské komprese, teď pro sport', preheader:'Stejná odbornost ARIES – od prvního běhu po maraton.'},
-        web:    {h1:'25+ let lékařské komprese. Teď i pro sport.', sub:'ARIES dělá lékařskou kompresi přes 25 let. ROYAL BAY je ta samá odbornost – od prvního běhu po maraton.'}
+                 d2:'Od vrcholových atletů po maratonské běžce. Komprese, které věří profíci.'},
+        email:  {subject:'25 let lékařské komprese, teď pro sport', preheader:'Od vrcholových atletů po maratonské běžce – stejná odbornost ARIES.'},
+        web:    {h1:'25+ let lékařské komprese. Teď i pro sport.', sub:'ARIES dělá lékařskou kompresi přes 25 let. ROYAL BAY je ta samá odbornost – od vrcholových atletů po maratonské běžce.'}
       },
       diffs: [
         {vs:'Compressport', text:'Compressport je víc fashion/sport než medical – je to jejich vlastní slabina. ROYAL BAY stojí na 25+ letech lékařské komprese ARIES.'},
@@ -347,30 +347,30 @@ const DATA = {
       ]
     },
     sk: {
-      positioning: 'Medical-grade kompresné oblečenie vyrobené v ČR. Za ROYAL BAY stojí ARIES s viac ako 25 rokmi v lekárskej kompresii – veda, nie fashion trend. Podpora nôh pri športe aj rýchlejšia regenerácia po ňom.',
+      positioning: 'Medical-grade kompresné oblečenie vyrobené v ČR. Za ROYAL BAY stojí ARIES s viac ako 25 rokmi v lekárskej kompresii – veda, nie fashion trend. Kompresia, ktorá funguje pre každý pohyb.',
       A: {
         meta:   {primary:'Veda, nie fashion trend. Medical-grade kompresia vyrobená v ČR, za ktorou stojí 25+ rokov skúseností ARIES.', headline:'Veda, nie fashion trend', desc:'Vyrobené v ČR'},
-        search: {h1:'ROYAL BAY kompresia', h2:'Veda, nie fashion trend', h3:'Vyrobené v ČR',
+        search: {h1:'ROYAL BAY kompresia', h2:'Veda, nie fashion trend', h3:'České kompresky',
                  d1:'Medical-grade kompresia vyrobená v ČR. Za ňou 25+ rokov skúseností z lekárskej kompresie.',
                  d2:'Nie je to fashion doplnok. Je to funkčný produkt od špecialistov ARIES.'},
         email:  {subject:'Veda, nie fashion trend', preheader:'ROYAL BAY – medical-grade kompresia vyrobená v ČR firmou ARIES.'},
         web:    {h1:'Veda, nie fashion trend', sub:'Medical-grade kompresia vyrobená v ČR. Za ROYAL BAY stojí 25+ rokov skúseností ARIES z lekárskej kompresie.'}
       },
       B: {
-        meta:   {primary:'Energy na výkon, Therapy na regeneráciu, Extreme do terénu. Väčšina veľkostí skladom. [DOPRAVA]', headline:'Väčšina veľkostí skladom', desc:'Expresné doručenie'},
-        search: {h1:'ROYAL BAY e-shop', h2:'Väčšina veľkostí skladom', h3:'Expresné doručenie',
-                 d1:'Energy, Motion, Therapy, Extreme. Rady pre výkon aj regeneráciu na jednom mieste.',
-                 d2:'Väčšina veľkostí skladom, expresné doručenie, poradenstvo pri výbere veľkosti.'},
-        email:  {subject:'Rada na výkon aj na regeneráciu', preheader:'Energy, Motion, Therapy, Extreme – väčšinu veľkostí máme skladom.'},
-        web:    {h1:'Kompresia pre výkon aj regeneráciu', sub:'Energy, Motion, Therapy, Extreme. Väčšina veľkostí skladom, expresné doručenie. [DOPRAVA]'}
+        meta:   {primary:'Energy, Motion, Air, Therapy aj Extreme – kompresia pre každý pohyb. Doprava zadarmo nad 70 €.', headline:'Doprava zadarmo od 70 €', desc:'Rady pre každý pohyb'},
+        search: {h1:'ROYAL BAY e-shop', h2:'Doprava zadarmo od 70 €', h3:'Podkolienky aj návleky',
+                 d1:'Energy, Motion, Air, Therapy, Extreme. Podkolienky, návleky, šortky aj ponožky.',
+                 d2:'Kompresia pre výkon aj regeneráciu. Doprava zadarmo pri nákupe nad 70 €.'},
+        email:  {subject:'Kompresia pre výkon aj regeneráciu', preheader:'Energy, Motion, Air, Therapy, Extreme – doprava zadarmo nad 70 €.'},
+        web:    {h1:'Kompresia, ktorá funguje pre každý pohyb', sub:'Podkolienky, lýtkové aj stehenné návleky, šortky a ponožky. Rady Energy, Motion, Air, Therapy a Extreme. Doprava zadarmo nad 70 €.'}
       },
       C: {
-        meta:   {primary:'Kompresia od ARIES – firmy, ktorá 25+ rokov robí lekársku kompresiu. Teraz aj pre tvoj beh či regeneráciu.', headline:'25+ rokov v kompresii', desc:'Odbornosť ARIES'},
-        search: {h1:'Kompresia od ARIES', h2:'25+ rokov v kompresii', h3:'Overené pre šport',
+        meta:   {primary:'Kompresia od ARIES – firmy, ktorá 25+ rokov robí lekársku kompresiu. Od vrcholových atlétov po maratóncov.', headline:'25+ rokov v kompresii', desc:'Odbornosť ARIES'},
+        search: {h1:'Kompresia od ARIES', h2:'25+ rokov v kompresii', h3:'Verí jej špička',
                  d1:'ARIES robí lekársku kompresiu vyše 25 rokov. ROYAL BAY je tá istá odbornosť pre šport.',
-                 d2:'Rovnaká technológia ako v lekárskej kompresii – len v podobe na tréning.'},
-        email:  {subject:'25 rokov lekárskej kompresie pre šport', preheader:'Tá istá odbornosť ARIES – od prvého behu po maratón.'},
-        web:    {h1:'25+ rokov lekárskej kompresie. Teraz pre šport.', sub:'ARIES robí lekársku kompresiu vyše 25 rokov. ROYAL BAY je tá istá odbornosť – od prvého behu po maratón.'}
+                 d2:'Od vrcholových atlétov po maratóncov. Kompresia, ktorej veria profíci.'},
+        email:  {subject:'25 rokov lekárskej kompresie pre šport', preheader:'Od vrcholových atlétov po maratóncov – tá istá odbornosť ARIES.'},
+        web:    {h1:'25+ rokov lekárskej kompresie. Teraz pre šport.', sub:'ARIES robí lekársku kompresiu vyše 25 rokov. ROYAL BAY je tá istá odbornosť – od vrcholových atlétov po maratóncov.'}
       },
       diffs: [
         {vs:'Compressport', text:'Compressport je viac fashion/sport než medical – je to ich vlastná slabina. ROYAL BAY stojí na 25+ rokoch lekárskej kompresie ARIES.'},
@@ -553,7 +553,7 @@ function markdown(trh){
   return out;
 }
 
-const FOOTNOTE = '\n\n---\n[DOPRAVA] = doplniť podľa aktuálnych podmienok; tvrdenie „expresné doručenie" potvrdiť.\n' +
+const FOOTNOTE = '\n\n---\nDoprava zdarma nad 1 500 Kč (CZ) / nad 70 € (SK), balné vždy zdarma. Enervit Team: stála 10% zľava + 10 % na ponožky ROYAL BAY.\n' +
   'Limity: Meta primárny text 125, nadpis 40, popis 30 · Google Ads a Sklik nadpis 30, popis 90 · predmet e-mailu 50.\n' +
   'Sklik reálne beží len v CZ. VITAR Sport · Content & Brand Engine · v3, 20. 8. 2026\n';
 
