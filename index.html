@@ -40,7 +40,6 @@ body{
   font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;
 }
 .app{--accent:var(--e)}
-.app[data-brand="royalbay"]{--accent:var(--r)}
 .shell{max-width:900px;margin:0 auto;padding:0 20px 64px}
 
 header{padding:34px 0 0}
@@ -158,9 +157,9 @@ footer strong{color:var(--ink);font-weight:600}
 <div class="shell">
 
   <header>
-    <p class="eyebrow">VITAR Sport · Content &amp; Brand Engine</p>
+    <p class="eyebrow">VITAR Sport · Enervit · Content &amp; Brand Engine</p>
     <h1>USP Generator</h1>
-    <p class="lede">Ťahák na reklamné texty pre Enervit a ROYAL BAY. Hotové assety v limitoch platforiem — Meta, Google Ads, Sklik, e-mail, web. Tri varianty, každý na inom argumente.</p>
+    <p class="lede">Ťahák na reklamné texty pre Enervit — športovú výživu a doplnky. Hotové assety v limitoch platforiem: Meta, Google Ads, Sklik, e-mail, web. Tri varianty, každý na inom argumente.</p>
     <div class="brand-rule"></div>
   </header>
 
@@ -172,13 +171,6 @@ footer strong{color:var(--ink);font-weight:600}
 
   <div class="controls">
     <div class="grid">
-      <div class="field">
-        <label for="brand">Značka</label>
-        <select id="brand">
-          <option value="enervit">Enervit — športová výživa</option>
-          <option value="royalbay">ROYAL BAY — kompresia</option>
-        </select>
-      </div>
       <div class="field">
         <label for="trh">Trh</label>
         <select id="trh">
@@ -202,8 +194,8 @@ footer strong{color:var(--ink);font-weight:600}
   <div class="result" id="result"></div>
 
   <footer>
-    <strong>v3 — 20. 8. 2026.</strong> Štruktúra podľa feedbacku agentúry (Veronika Bačová), assety v limitoch platforiem.
-    Konkurenčné dáta z februára 2026. Ceny a doprava spred go-live ROYAL BAY e-shopu — pred nasadením over.
+    <strong>v4 — 20. 8. 2026.</strong> Štruktúra podľa feedbacku agentúry (Veronika Bačová), assety v limitoch platforiem.
+    Doprava a klubové podmienky overené priamo na eshop.enervit.cz a enervitsport.sk 20. 8. 2026. Konkurenčné dáta z februára 2026.
   </footer>
 
 </div>
@@ -311,73 +303,6 @@ const DATA = {
         {vs:'GU / SiS / PowerBar', text:'Žiadny z nich nemá v CZ/SK eventovú prítomnosť ani lokálny tím. Enervit je na ôsmich Tier 1 eventoch.'}
       ]
     }
-  },
-
-  royalbay: {
-    cz: {
-      positioning: 'Medical-grade kompresní oblečení vyrobené v ČR. Za ROYAL BAY stojí ARIES s více než 25 lety v lékařské kompresi – věda, ne fashion trend. Komprese, která funguje pro každý pohyb.',
-      A: {
-        meta:   {primary:'Věda, ne fashion trend. Medical-grade komprese vyrobená v ČR, za kterou stojí 25+ let zkušeností ARIES.', headline:'Věda, ne fashion trend', desc:'Vyrobeno v ČR'},
-        search: {h1:'ROYAL BAY komprese', h2:'Věda, ne fashion trend', h3:'České kompresky',
-                 d1:'Medical-grade komprese vyrobená v ČR. Za ní 25+ let zkušeností z lékařské komprese.',
-                 d2:'Není to fashion doplněk. Je to funkční produkt od specialistů ARIES.'},
-        email:  {subject:'Věda, ne fashion trend', preheader:'ROYAL BAY – medical-grade komprese vyrobená v ČR firmou ARIES.'},
-        web:    {h1:'Věda, ne fashion trend', sub:'Medical-grade komprese vyrobená v ČR. Za ROYAL BAY stojí 25+ let zkušeností ARIES z lékařské komprese.'}
-      },
-      B: {
-        meta:   {primary:'Energy, Motion, Air, Therapy i Extreme – komprese pro každý pohyb. Doprava zdarma nad 1 500 Kč.', headline:'Doprava zdarma od 1500 Kč', desc:'Řady pro každý pohyb'},
-        search: {h1:'ROYAL BAY e-shop', h2:'Doprava zdarma od 1500 Kč', h3:'Podkolenky i návleky',
-                 d1:'Energy, Motion, Air, Therapy, Extreme. Podkolenky, návleky, šortky i ponožky.',
-                 d2:'Komprese pro výkon i regeneraci. Doprava zdarma při nákupu nad 1 500 Kč.'},
-        email:  {subject:'Komprese pro výkon i regeneraci', preheader:'Energy, Motion, Air, Therapy, Extreme – doprava zdarma nad 1 500 Kč.'},
-        web:    {h1:'Komprese, která funguje pro každý pohyb', sub:'Podkolenky, lýtkové i stehenní návleky, šortky a ponožky. Řady Energy, Motion, Air, Therapy a Extreme. Doprava zdarma nad 1 500 Kč.'}
-      },
-      C: {
-        meta:   {primary:'Komprese od ARIES – firmy, která 25+ let dělá lékařskou kompresi. Od vrcholových atletů po maratonské běžce.', headline:'25+ let lékařské komprese', desc:'Odbornost ARIES'},
-        search: {h1:'Komprese od ARIES', h2:'25+ let lékařské komprese', h3:'Věří jí profíci',
-                 d1:'ARIES dělá lékařskou kompresi přes 25 let. ROYAL BAY je ta samá odbornost pro sport.',
-                 d2:'Od vrcholových atletů po maratonské běžce. Komprese, které věří profíci.'},
-        email:  {subject:'25 let lékařské komprese, teď pro sport', preheader:'Od vrcholových atletů po maratonské běžce – stejná odbornost ARIES.'},
-        web:    {h1:'25+ let lékařské komprese. Teď i pro sport.', sub:'ARIES dělá lékařskou kompresi přes 25 let. ROYAL BAY je ta samá odbornost – od vrcholových atletů po maratonské běžce.'}
-      },
-      diffs: [
-        {vs:'Compressport', text:'Compressport je víc fashion/sport než medical – je to jejich vlastní slabina. ROYAL BAY stojí na 25+ letech lékařské komprese ARIES.'},
-        {vs:'CEP', text:'Srovnatelný medical background (medi vs ARIES), ale CEP je nejdražší na trhu a v CEE má slabé DTC.'},
-        {vs:'STOX', text:'STOX je DTC scale-up s nulovou přítomností v CEE. ROYAL BAY je doma – jazyk, sklad, doprava, servis.'}
-      ]
-    },
-    sk: {
-      positioning: 'Medical-grade kompresné oblečenie vyrobené v ČR. Za ROYAL BAY stojí ARIES s viac ako 25 rokmi v lekárskej kompresii – veda, nie fashion trend. Kompresia, ktorá funguje pre každý pohyb.',
-      A: {
-        meta:   {primary:'Veda, nie fashion trend. Medical-grade kompresia vyrobená v ČR, za ktorou stojí 25+ rokov skúseností ARIES.', headline:'Veda, nie fashion trend', desc:'Vyrobené v ČR'},
-        search: {h1:'ROYAL BAY kompresia', h2:'Veda, nie fashion trend', h3:'České kompresky',
-                 d1:'Medical-grade kompresia vyrobená v ČR. Za ňou 25+ rokov skúseností z lekárskej kompresie.',
-                 d2:'Nie je to fashion doplnok. Je to funkčný produkt od špecialistov ARIES.'},
-        email:  {subject:'Veda, nie fashion trend', preheader:'ROYAL BAY – medical-grade kompresia vyrobená v ČR firmou ARIES.'},
-        web:    {h1:'Veda, nie fashion trend', sub:'Medical-grade kompresia vyrobená v ČR. Za ROYAL BAY stojí 25+ rokov skúseností ARIES z lekárskej kompresie.'}
-      },
-      B: {
-        meta:   {primary:'Energy, Motion, Air, Therapy aj Extreme – kompresia pre každý pohyb. Doprava zadarmo nad 70 €.', headline:'Doprava zadarmo od 70 €', desc:'Rady pre každý pohyb'},
-        search: {h1:'ROYAL BAY e-shop', h2:'Doprava zadarmo od 70 €', h3:'Podkolienky aj návleky',
-                 d1:'Energy, Motion, Air, Therapy, Extreme. Podkolienky, návleky, šortky aj ponožky.',
-                 d2:'Kompresia pre výkon aj regeneráciu. Doprava zadarmo pri nákupe nad 70 €.'},
-        email:  {subject:'Kompresia pre výkon aj regeneráciu', preheader:'Energy, Motion, Air, Therapy, Extreme – doprava zadarmo nad 70 €.'},
-        web:    {h1:'Kompresia, ktorá funguje pre každý pohyb', sub:'Podkolienky, lýtkové aj stehenné návleky, šortky a ponožky. Rady Energy, Motion, Air, Therapy a Extreme. Doprava zadarmo nad 70 €.'}
-      },
-      C: {
-        meta:   {primary:'Kompresia od ARIES – firmy, ktorá 25+ rokov robí lekársku kompresiu. Od vrcholových atlétov po maratóncov.', headline:'25+ rokov v kompresii', desc:'Odbornosť ARIES'},
-        search: {h1:'Kompresia od ARIES', h2:'25+ rokov v kompresii', h3:'Verí jej špička',
-                 d1:'ARIES robí lekársku kompresiu vyše 25 rokov. ROYAL BAY je tá istá odbornosť pre šport.',
-                 d2:'Od vrcholových atlétov po maratóncov. Kompresia, ktorej veria profíci.'},
-        email:  {subject:'25 rokov lekárskej kompresie pre šport', preheader:'Od vrcholových atlétov po maratóncov – tá istá odbornosť ARIES.'},
-        web:    {h1:'25+ rokov lekárskej kompresie. Teraz pre šport.', sub:'ARIES robí lekársku kompresiu vyše 25 rokov. ROYAL BAY je tá istá odbornosť – od vrcholových atlétov po maratóncov.'}
-      },
-      diffs: [
-        {vs:'Compressport', text:'Compressport je viac fashion/sport než medical – je to ich vlastná slabina. ROYAL BAY stojí na 25+ rokoch lekárskej kompresie ARIES.'},
-        {vs:'CEP', text:'Porovnateľný medical background (medi vs ARIES), ale CEP je najdrahší na trhu a v CEE má slabé DTC.'},
-        {vs:'STOX', text:'STOX je DTC scale-up s nulovou prítomnosťou v CEE. ROYAL BAY je doma – jazyk, sklad, doprava, servis.'}
-      ]
-    }
   }
 };
 
@@ -389,20 +314,11 @@ const SPORTS = {
     {v:'trail',    l:'Trail',    cz:'Do hor, kde se počítá každý gram.',            sk:'Do hôr, kde sa počíta každý gram.'},
     {v:'triatlon', l:'Triatlon', cz:'Přes všechny tři disciplíny bez výpadku.',     sk:'Cez všetky tri disciplíny bez výpadku.'},
     {v:'recovery', l:'Recovery', cz:'A hlavně potom, když se tělo dává dohromady.', sk:'A hlavne potom, keď sa telo dáva dokopy.'}
-  ],
-  royalbay: [
-    {v:'', l:'Univerzálne (bez doladenia)'},
-    {v:'bezci',    l:'Bežci',    cz:'Od prvního výběhu po maraton.',        sk:'Od prvého výbehu po maratón.'},
-    {v:'cyklo',    l:'Cyklisti', cz:'Na dlouhé sezení v sedle i po něm.',   sk:'Na dlhé sedenie v sedle aj po ňom.'},
-    {v:'trail',    l:'Trail',    cz:'Do terénu, kde noha nemá rovinu.',     sk:'Do terénu, kde noha nemá rovinu.'},
-    {v:'triatlon', l:'Triatlon', cz:'Napříč všemi třemi disciplínami.',     sk:'Naprieč všetkými tromi disciplínami.'},
-    {v:'recovery', l:'Recovery', cz:'Když nohy potřebují vypnout.',         sk:'Keď nohy potrebujú vypnúť.'},
-    {v:'medical',  l:'Medical',  cz:'Pro rehabilitaci i každodenní oporu.', sk:'Pre rehabilitáciu aj každodennú oporu.'}
   ]
 };
 
 const app     = document.getElementById('app');
-const elBrand = document.getElementById('brand');
+const BRAND = 'enervit';
 const elTrh   = document.getElementById('trh');
 const elSport = document.getElementById('sport');
 const elOut   = document.getElementById('result');
@@ -415,7 +331,7 @@ function esc(s){
 }
 
 function syncSports(){
-  const brand = elBrand.value, prev = elSport.value;
+  const brand = BRAND, prev = elSport.value;
   const list = SPORTS[brand];
   elSport.innerHTML = list.map(s => '<option value="' + s.v + '">' + s.l + '</option>').join('');
   elSport.value = list.some(s => s.v === prev) ? prev : '';
@@ -439,11 +355,11 @@ function assetText(brand, trh, vk, chKey, field){
 }
 
 function render(){
-  const brand = elBrand.value, trh = elTrh.value, sport = elSport.value;
+  const brand = BRAND, trh = elTrh.value, sport = elSport.value;
   app.dataset.brand = brand;
 
   const d = DATA[brand][trh];
-  const brandName = brand === 'enervit' ? 'Enervit' : 'ROYAL BAY';
+  const brandName = 'Enervit';
   const trhName   = trh === 'cz' ? 'Česko' : 'Slovensko';
   const sportName = elSport.selectedOptions[0] ? elSport.selectedOptions[0].textContent : '';
   current = {brand, brandName, trh, trhName, sport, sportName};
@@ -557,7 +473,6 @@ const FOOTNOTE = '\n\n---\nDoprava zdarma nad 1 500 Kč (CZ) / nad 70 € (SK), 
   'Limity: Meta primárny text 125, nadpis 40, popis 30 · Google Ads a Sklik nadpis 30, popis 90 · predmet e-mailu 50.\n' +
   'Sklik reálne beží len v CZ. VITAR Sport · Content & Brand Engine · v3, 20. 8. 2026\n';
 
-elBrand.addEventListener('change', () => { syncSports(); render(); });
 [elTrh, elSport].forEach(el => el.addEventListener('change', render));
 
 elOut.addEventListener('click', e => {
