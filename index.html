@@ -11,7 +11,7 @@
   --bg:#f5f6f9; --card:#ffffff; --card-2:#eef0f5;
   --ink:#15161d; --muted:#646b7c; --border:#e0e4ec;
   --note-bg:#fdf8e8; --note-border:#e8d9a4; --note-ink:#6b5a1f;
-  --warn:#b4541a;
+  --warn:#b4541a; --ok:#1a7f4a;
   --shadow:0 1px 2px rgba(20,22,35,.05), 0 6px 18px -12px rgba(20,22,35,.25);
 }
 @media (prefers-color-scheme: dark){
@@ -20,7 +20,7 @@
     --bg:#101119; --card:#191b24; --card-2:#20232e;
     --ink:#e7e9f0; --muted:#98a0b2; --border:#2b2f3c;
     --note-bg:#241f10; --note-border:#4a3f1c; --note-ink:#d8c48a;
-    --warn:#f0a06a;
+    --warn:#f0a06a; --ok:#4ade80;
     --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 18px -12px rgba(0,0,0,.7);
   }
 }
@@ -29,7 +29,7 @@
   --bg:#101119; --card:#191b24; --card-2:#20232e;
   --ink:#e7e9f0; --muted:#98a0b2; --border:#2b2f3c;
   --note-bg:#241f10; --note-border:#4a3f1c; --note-ink:#d8c48a;
-  --warn:#f0a06a;
+  --warn:#f0a06a; --ok:#4ade80;
   --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 18px -12px rgba(0,0,0,.7);
 }
 
@@ -85,42 +85,45 @@ h2{font-size:.7rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase
 
 .usp{
   font-family:Georgia,"Iowan Old Style","Times New Roman",serif;
-  font-size:clamp(1.05rem,2.2vw,1.28rem);line-height:1.5;
+  font-size:clamp(1.02rem,2.1vw,1.22rem);line-height:1.5;
   padding:16px 20px;border-radius:10px;border-left:3px solid var(--accent);
   background:color-mix(in oklab, var(--accent) 7%, var(--card));margin:0;
 }
 
-.variant{margin-bottom:18px}
-.variant:last-child{margin-bottom:0}
-.vhead{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin-bottom:4px}
+.vhead{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin:0 0 4px}
 .vkey{
   flex:0 0 auto;width:20px;height:20px;border-radius:6px;background:var(--accent);color:#fff;
   font-size:.7rem;font-weight:700;line-height:20px;text-align:center;
 }
 :root[data-theme="dark"] .vkey{color:#101119}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .vkey{color:#101119}}
-.vname{font-size:.85rem;font-weight:700}
-.vdesc{font-size:.75rem;color:var(--muted);margin:0 0 8px;line-height:1.45}
+.vname{font-size:.95rem;font-weight:700}
+.vdesc{font-size:.76rem;color:var(--muted);margin:0 0 16px;line-height:1.45}
 
-.copy{
-  position:relative;text-align:left;width:100%;display:block;background:var(--card-2);
-  border:1px solid transparent;border-radius:10px;padding:12px 14px;cursor:pointer;
-  font:inherit;color:inherit;transition:border-color .15s ease,background .15s ease;margin-bottom:6px;
+.chan{margin-bottom:16px}
+.chan:last-child{margin-bottom:0}
+.chan-name{
+  font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink);margin:0 0 2px;
 }
-.copy:hover{border-color:var(--accent)}
-.copy .ch{
-  display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;
-  font-size:.63rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;
-}
-.copy .count{margin-left:auto;letter-spacing:.04em;font-weight:600;text-transform:none}
-.copy .count[data-over="true"]{color:var(--warn)}
-.copy .tx{display:block;font-size:.88rem;line-height:1.5}
-.limit{display:block;margin-top:8px;font-size:.74rem;line-height:1.45;color:var(--warn);font-weight:600}
+.chan-note{font-size:.7rem;color:var(--muted);margin:0 0 8px}
 
-.internal{
-  border:1px dashed var(--border);border-radius:12px;padding:18px 20px;margin-top:4px;
-  background:transparent;
+.asset{
+  position:relative;text-align:left;width:100%;display:grid;
+  grid-template-columns:minmax(88px,auto) 1fr auto;gap:10px;align-items:baseline;
+  background:var(--card-2);border:1px solid transparent;border-radius:9px;
+  padding:9px 12px;cursor:pointer;font:inherit;color:inherit;margin-bottom:5px;
+  transition:border-color .15s ease;
 }
+.asset:hover{border-color:var(--accent)}
+.asset .fname{
+  font-size:.64rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
+}
+.asset .ftx{font-size:.87rem;line-height:1.45;min-width:0;overflow-wrap:anywhere}
+.asset .fc{font-size:.68rem;font-weight:700;color:var(--ok);white-space:nowrap}
+.asset .fc[data-over="true"]{color:var(--warn)}
+
+.internal{border:1px dashed var(--border);border-radius:12px;padding:18px 20px}
 .internal h2{margin-bottom:6px}
 .internal .warnline{font-size:.74rem;color:var(--warn);font-weight:600;margin:0 0 12px}
 .diffs{display:flex;flex-direction:column;gap:8px}
@@ -139,8 +142,10 @@ footer strong{color:var(--ink);font-weight:600}
 #toast[data-show="true"]{opacity:1;transform:translateX(-50%) translateY(0)}
 #toast[data-tone="err"]{background:var(--e);color:#fff}
 
-@media (max-width:600px){
+@media (max-width:640px){
   .shell{padding:0 15px 48px}
+  .asset{grid-template-columns:1fr auto}
+  .asset .fname{grid-column:1 / -1}
   .diff{flex-direction:column;gap:3px}
   .diff .vs{min-width:0}
 }
@@ -155,14 +160,14 @@ footer strong{color:var(--ink);font-weight:600}
   <header>
     <p class="eyebrow">VITAR Sport · Content &amp; Brand Engine</p>
     <h1>USP Generator</h1>
-    <p class="lede">B2C copy pre Enervit a ROYAL BAY. Tri varianty na každý kanál, každý postavený na inom argumente. Texty sú univerzálne — šport je len voliteľné doladenie.</p>
+    <p class="lede">Ťahák na reklamné texty pre Enervit a ROYAL BAY. Hotové assety v limitoch platforiem — Meta, Google Ads, Sklik, e-mail, web. Tri varianty, každý na inom argumente.</p>
     <div class="brand-rule"></div>
   </header>
 
   <p class="banner">
-    <b>MVP — dve veci pred nasadením.</b> Doprava: <b>[DOPRAVA]</b> je placeholder, konkrétny prísľub doplňte podľa
-    aktuálnych podmienok (aj tvrdenie „expresné doručenie“ treba potvrdiť). Google Ads: texty sú koncept —
-    headline max 30 znakov, description max 90, pred nasadením rozsekať.
+    <b>Pred nasadením:</b> <b>[DOPRAVA]</b> je placeholder — konkrétny prísľub doplňte podľa aktuálnych podmienok,
+    aj tvrdenie „expresné doručenie“ treba potvrdiť. Počty znakov sú kontrolované voči limitom platforiem;
+    po nahradení <b>[DOPRAVA]</b> reálnym textom si dĺžku prekontrolujte znova.
   </p>
 
   <div class="controls">
@@ -183,8 +188,8 @@ footer strong{color:var(--ink);font-weight:600}
       </div>
       <div class="field">
         <label for="sport">Prispôsobiť pre…</label>
-        <select id="sport"><!-- napĺňa sa podľa značky --></select>
-        <span class="hint">Voliteľné. Doladí texty pre konkrétnu kampaň.</span>
+        <select id="sport"></select>
+        <span class="hint">Voliteľné. Doladí len dlhé polia (Meta text, web, preheader).</span>
       </div>
     </div>
     <div class="actions">
@@ -197,8 +202,8 @@ footer strong{color:var(--ink);font-weight:600}
   <div class="result" id="result"></div>
 
   <footer>
-    <strong>Copy prepracované 20. 8. 2026</strong> podľa feedbacku agentúry (Veronika Bačová).
-    Konkurenčné dáta z februára 2026. Ceny a doprava sú spred go-live ROYAL BAY e-shopu — pred nasadením over.
+    <strong>v3 — 20. 8. 2026.</strong> Štruktúra podľa feedbacku agentúry (Veronika Bačová), assety v limitoch platforiem.
+    Konkurenčné dáta z februára 2026. Ceny a doprava spred go-live ROYAL BAY e-shopu — pred nasadením over.
   </footer>
 
 </div>
@@ -208,47 +213,65 @@ footer strong{color:var(--ink);font-weight:600}
 
 <script>
 /* ─────────────────────────────────────────────────────────────
-   Struktura v2 (20.8.2026):
-   Copy sa uz nedeli podla sportu. Kazdy kanal ma tri varianty,
-   kazdy postaveny na inom USP argumente:
-     A brandovy · B nakupny · C dokazovy
-   Sport je volitelny filter, ktory prida doladujucu vetu.
+   v3 — tahak na reklamne texty.
+   Vystup = hotove assety v limitoch platforiem, nie odstavce.
+   Tri varianty na kanal: A brandovy · B nakupny · C dokazovy.
+   Sport = volitelny filter, doladi len dlhe polia.
    ───────────────────────────────────────────────────────────── */
 
 const VARIANTS = [
-  {k:'A', name:'Brandový', desc:'Taliansky/český pôvod, tradícia, kompletný systém. Pre ľudí, ktorí značku ešte nepoznajú.'},
-  {k:'B', name:'Nákupný',  desc:'Doprava, dostupnosť, všetko na jednom mieste. Pre ľudí, ktorí už vedia čo chcú a rozhodujú sa kde.'},
-  {k:'C', name:'Dôkazový', desc:'Pogačar, UAE Team Emirates, ARIES — overené v praxi. Funguje na profíka aj na začiatočníka.'}
+  {k:'A', name:'Brandový', desc:'Pôvod, tradícia, kompletný systém. Pre ľudí, ktorí značku ešte nepoznajú.'},
+  {k:'B', name:'Nákupný',  desc:'Doprava, dostupnosť, všetko na jednom mieste. Pre ľudí, ktorí sa rozhodujú kde nakúpiť.'},
+  {k:'C', name:'Dôkazový', desc:'Pogačar a UAE Team Emirates / odbornosť ARIES. Overené v praxi — a funguje aj na začiatočníka.'}
 ];
 
-const CHANNELS = ['meta','google','email','web'];
-const CHANNEL_LABELS = {meta:'Meta (FB + IG)', google:'Google Ads', email:'Email', web:'Web / landing page'};
+/* Limity platforiem. Sklik ma rovnake ako Google Ads (30 / 90). */
+const CHANNELS = [
+  {k:'meta', name:'Meta (Facebook + Instagram)', note:'Primárny text sa nad ~125 znakov skracuje s „viac“.',
+   fields:[{k:'primary', name:'Primárny text', max:125, hook:true},
+           {k:'headline', name:'Nadpis',       max:40},
+           {k:'desc',     name:'Popis',        max:30}]},
+  {k:'search', name:'Google Ads + Sklik', note:'Rovnaké limity na oboch. Sklik reálne beží len v CZ.',
+   fields:[{k:'h1', name:'Nadpis 1', max:30},
+           {k:'h2', name:'Nadpis 2', max:30},
+           {k:'h3', name:'Nadpis 3', max:30},
+           {k:'d1', name:'Popis 1',  max:90},
+           {k:'d2', name:'Popis 2',  max:90}]},
+  {k:'email', name:'E-mail', note:'Predmet nad ~50 znakov sa v mobilnom kliente odreže.',
+   fields:[{k:'subject',   name:'Predmet',    max:50},
+           {k:'preheader', name:'Preheader',  max:90, hook:true}]},
+  {k:'web', name:'Web / landing page', note:'Bez tvrdého limitu — orientačne H1 do 60, podnadpis do 140.',
+   fields:[{k:'h1',  name:'H1',         max:60},
+           {k:'sub', name:'Podnadpis',  max:140, hook:true}]}
+];
 
 const DATA = {
   enervit: {
     cz: {
       positioning: 'Kompletní sportovní výživa s italskou tradicí – gely, izotoniky, tyčinky i recovery na jednom místě. Více než 40 let zkušeností a stejná výživa, jakou používá tým UAE na Tour de France. Funguje na Grand Tour i na tvé první desítce.',
-      copy: {
-        meta: {
-          A: 'Víc než 40 let italské tradice. Gely, izotoniky, tyčinky i recovery – jeden systém od tréninku po regeneraci. Enervit.',
-          B: 'Všechno pro trénink i závod na jednom místě. Většina produktů skladem, expresní doručení. [DOPRAVA]',
-          C: 'Stejná výživa, jakou používá tým UAE na Tour de France. Funguje Pogačarovi i tobě na první desítce. 🇮🇹'
-        },
-        google: {
-          A: 'Enervit – italská sportovní výživa | Gely, izotoniky, tyčinky, recovery | Více než 40 let tradice',
-          B: 'Enervit e-shop | Většina zboží skladem | Expresní doručení | Všechno pro sport na jednom místě | [DOPRAVA]',
-          C: 'Výživa týmu UAE na Tour de France | Ověřeno v Grand Tours | Enervit pro každého, kdo sportuje'
-        },
-        email: {
-          A: 'Enervit dělá sportovní výživu přes 40 let. Gely, izotoniky, tyčinky a recovery, které do sebe zapadají – ať jedeš první desítku nebo maraton.',
-          B: 'Nemusíš objednávat na třech e-shopech. Enervit má výživu pro trénink, závod i regeneraci pohromadě, většinu skladem a s expresním doručením.',
-          C: 'Tým UAE na Tour de France jede na Enervitu. Ta samá řada je i pro tebe – bez ohledu na to, jestli běháš pětku nebo ultra.'
-        },
-        web: {
-          A: 'Fueled by ENERVIT. Italská sportovní výživa už přes 40 let. Kompletní systém od tréninku přes závod až po regeneraci.',
-          B: 'Všechno pro tvůj sport na jednom místě. Většina produktů skladem, expresní doručení, poradenství k výběru. [DOPRAVA]',
-          C: 'Výživa, která pomohla Tadeji Pogačarovi k pěti titulům na Tour de France. A funguje stejně na tvém nedělním výběhu.'
-        }
+      A: {
+        meta:   {primary:'Víc než 40 let italské tradice. Gely, izotoniky, tyčinky i recovery – jeden systém od tréninku po regeneraci.', headline:'Italská výživa už přes 40 let', desc:'Kompletní systém'},
+        search: {h1:'Enervit – italská výživa', h2:'Přes 40 let tradice', h3:'Gely, izotoniky, recovery',
+                 d1:'Kompletní sportovní výživa od tréninku po regeneraci. Italská kvalita už přes 40 let.',
+                 d2:'Gely, izotoniky, tyčinky i recovery. Jeden systém pro celý tvůj sportovní rok.'},
+        email:  {subject:'Jedna značka od tréninku po regeneraci', preheader:'Enervit dělá sportovní výživu přes 40 let – a všechno do sebe zapadá.'},
+        web:    {h1:'Italská sportovní výživa už přes 40 let', sub:'Kompletní systém od tréninku přes závod až po regeneraci. Gely, izotoniky, tyčinky, recovery.'}
+      },
+      B: {
+        meta:   {primary:'Všechno pro trénink i závod na jednom místě. Většina produktů skladem, expresní doručení. [DOPRAVA]', headline:'Většina zboží skladem', desc:'Expresní doručení'},
+        search: {h1:'Enervit e-shop', h2:'Většina zboží skladem', h3:'Expresní doručení',
+                 d1:'Výživa pro trénink, závod i regeneraci na jednom místě. Většina produktů skladem.',
+                 d2:'Nemusíš objednávat na třech e-shopech. Expresní doručení, poradenství k výběru.'},
+        email:  {subject:'Všechno pro sport na jednom místě', preheader:'Většina produktů skladem, expresní doručení. [DOPRAVA]'},
+        web:    {h1:'Všechno pro tvůj sport na jednom místě', sub:'Většina produktů skladem, expresní doručení a poradenství k výběru. [DOPRAVA]'}
+      },
+      C: {
+        meta:   {primary:'Stejná výživa, jakou používá tým UAE na Tour de France. Funguje Pogačarovi i tobě na první desítce.', headline:'Výživa týmu UAE na Tour', desc:'Ověřeno v Grand Tours'},
+        search: {h1:'Výživa týmu UAE na Tour', h2:'Ověřeno v Grand Tours', h3:'Enervit pro každého',
+                 d1:'Stejná výživa, jakou jede tým UAE na Tour de France. A funguje i na tvé první desítce.',
+                 d2:'Pomohla Tadeji Pogačarovi k pěti titulům. Teď je na e-shopu i pro tebe.'},
+        email:  {subject:'Co jí tým UAE na Tour de France', preheader:'Ta samá řada je i pro tebe – ať běháš pětku nebo ultra.'},
+        web:    {h1:'Výživa, která pomohla Pogačarovi k pěti titulům', sub:'Tým UAE na Tour de France jede na Enervitu. Ta samá řada funguje i na tvém nedělním výběhu.'}
       },
       diffs: [
         {vs:'Nutrend', text:'Nutrend je fitness-first a mass-market. Enervit je stavěný pro vytrvalost a má za sebou Grand Tours.'},
@@ -258,27 +281,29 @@ const DATA = {
     },
     sk: {
       positioning: 'Kompletná športová výživa s talianskou tradíciou – gély, izotoniky, tyčinky aj recovery na jednom mieste. Viac ako 40 rokov skúseností a rovnaká výživa, akú používa tím UAE na Tour de France. Funguje na Grand Tour aj na tvojej prvej desiatke.',
-      copy: {
-        meta: {
-          A: 'Viac ako 40 rokov talianskej tradície. Gély, izotoniky, tyčinky aj recovery – jeden systém od tréningu po regeneráciu. Enervit.',
-          B: 'Všetko na tréning aj preteky na jednom mieste. Väčšina produktov skladom, expresné doručenie. [DOPRAVA]',
-          C: 'Rovnaká výživa, akú používa tím UAE na Tour de France. Funguje Pogačarovi aj tebe na prvej desiatke. 🇮🇹'
-        },
-        google: {
-          A: 'Enervit – talianska športová výživa | Gély, izotoniky, tyčinky, recovery | Viac ako 40 rokov tradície',
-          B: 'Enervit e-shop | Väčšina tovaru skladom | Expresné doručenie | Všetko pre šport na jednom mieste | [DOPRAVA]',
-          C: 'Výživa tímu UAE na Tour de France | Overené v Grand Tours | Enervit pre každého, kto športuje'
-        },
-        email: {
-          A: 'Enervit robí športovú výživu vyše 40 rokov. Gély, izotoniky, tyčinky a recovery, ktoré do seba zapadajú – či ideš prvú desiatku alebo maratón.',
-          B: 'Nemusíš objednávať na troch e-shopoch. Enervit má výživu na tréning, preteky aj regeneráciu pokope, väčšinu skladom a s expresným doručením.',
-          C: 'Tím UAE na Tour de France ide na Enervite. Tá istá rada je aj pre teba – bez ohľadu na to, či bežíš päťku alebo ultra.'
-        },
-        web: {
-          A: 'Fueled by ENERVIT. Talianska športová výživa už vyše 40 rokov. Kompletný systém od tréningu cez preteky až po regeneráciu.',
-          B: 'Všetko pre tvoj šport na jednom mieste. Väčšina produktov skladom, expresné doručenie, poradenstvo pri výbere. [DOPRAVA]',
-          C: 'Výživa, ktorá pomohla Tadejovi Pogačarovi k piatim titulom na Tour de France. A funguje rovnako na tvojom nedeľnom výbehu.'
-        }
+      A: {
+        meta:   {primary:'Viac ako 40 rokov talianskej tradície. Gély, izotoniky, tyčinky aj recovery – jeden systém od tréningu po regeneráciu.', headline:'Talianska výživa vyše 40 rokov', desc:'Kompletný systém'},
+        search: {h1:'Enervit – talianska výživa', h2:'Vyše 40 rokov tradície', h3:'Gély, izotoniky, recovery',
+                 d1:'Kompletná športová výživa od tréningu po regeneráciu. Talianska kvalita vyše 40 rokov.',
+                 d2:'Gély, izotoniky, tyčinky aj recovery. Jeden systém na celý tvoj športový rok.'},
+        email:  {subject:'Jedna značka od tréningu po regeneráciu', preheader:'Enervit robí športovú výživu vyše 40 rokov – a všetko do seba zapadá.'},
+        web:    {h1:'Talianska športová výživa už vyše 40 rokov', sub:'Kompletný systém od tréningu cez preteky až po regeneráciu. Gély, izotoniky, tyčinky, recovery.'}
+      },
+      B: {
+        meta:   {primary:'Všetko na tréning aj preteky na jednom mieste. Väčšina produktov skladom, expresné doručenie. [DOPRAVA]', headline:'Väčšina tovaru skladom', desc:'Expresné doručenie'},
+        search: {h1:'Enervit e-shop', h2:'Väčšina tovaru skladom', h3:'Expresné doručenie',
+                 d1:'Výživa na tréning, preteky aj regeneráciu na jednom mieste. Väčšina produktov skladom.',
+                 d2:'Nemusíš objednávať na troch e-shopoch. Expresné doručenie, poradenstvo pri výbere.'},
+        email:  {subject:'Všetko pre šport na jednom mieste', preheader:'Väčšina produktov skladom, expresné doručenie. [DOPRAVA]'},
+        web:    {h1:'Všetko pre tvoj šport na jednom mieste', sub:'Väčšina produktov skladom, expresné doručenie a poradenstvo pri výbere. [DOPRAVA]'}
+      },
+      C: {
+        meta:   {primary:'Rovnaká výživa, akú používa tím UAE na Tour de France. Funguje Pogačarovi aj tebe na prvej desiatke.', headline:'Výživa tímu UAE na Tour', desc:'Overené v Grand Tours'},
+        search: {h1:'Výživa tímu UAE na Tour', h2:'Overené v Grand Tours', h3:'Enervit pre každého',
+                 d1:'Rovnaká výživa, akú ide tím UAE na Tour de France. A funguje aj na tvojej prvej desiatke.',
+                 d2:'Pomohla Tadejovi Pogačarovi k piatim titulom. Teraz je na e-shope aj pre teba.'},
+        email:  {subject:'Čo je tím UAE na Tour de France', preheader:'Tá istá rada je aj pre teba – či bežíš päťku alebo ultra.'},
+        web:    {h1:'Výživa, ktorá pomohla Pogačarovi k piatim titulom', sub:'Tím UAE na Tour de France ide na Enervite. Tá istá rada funguje aj na tvojom nedeľnom výbehu.'}
       },
       diffs: [
         {vs:'Nutrend', text:'Nutrend je fitness-first a mass-market. Enervit je stavaný pre vytrvalosť a má za sebou Grand Tours.'},
@@ -291,27 +316,29 @@ const DATA = {
   royalbay: {
     cz: {
       positioning: 'Medical-grade kompresní oblečení vyrobené v ČR. Za ROYAL BAY stojí ARIES s více než 25 lety v lékařské kompresi – věda, ne fashion trend. Podpora nohou při sportu i rychlejší regenerace po něm.',
-      copy: {
-        meta: {
-          A: 'Věda, ne fashion trend. ROYAL BAY – medical-grade komprese vyrobená v ČR. Za ní 25+ let zkušeností z lékařské komprese. 🇨🇿',
-          B: 'Kompletní řady Energy, Motion, Therapy i Extreme. Většina velikostí skladem, expresní doručení. [DOPRAVA]',
-          C: 'Komprese od ARIES – firmy, která 25+ let dělá lékařskou kompresi. Teď i pro tvůj běh, kolo nebo regeneraci.'
-        },
-        google: {
-          A: 'ROYAL BAY | Medical-grade komprese | Vyrobeno v ČR | Věda, ne fashion trend',
-          B: 'ROYAL BAY e-shop | Energy, Motion, Therapy, Extreme | Většina velikostí skladem | [DOPRAVA]',
-          C: 'Komprese od specialistů ARIES | 25+ let v lékařské kompresi | Ověřeno pro sport i regeneraci'
-        },
-        email: {
-          A: 'ROYAL BAY není fashion doplněk. Je to medical-grade komprese vyrobená v ČR firmou ARIES, která lékařskou kompresi dělá přes 25 let.',
-          B: 'Energy na výkon, Therapy na regeneraci, Extreme do terénu. Většinu velikostí máme skladem a pošleme expresně.',
-          C: 'Stejná technologie, jakou ARIES používá v lékařské kompresi – jen v podobě, kterou si obuješ na trénink.'
-        },
-        web: {
-          A: 'ROYAL BAY. Věda, ne fashion trend. Medical-grade komprese vyrobená v ČR, za kterou stojí 25+ let zkušeností ARIES.',
-          B: 'Řady pro výkon i regeneraci: Energy, Motion, Therapy, Extreme. Většina velikostí skladem, expresní doručení. [DOPRAVA]',
-          C: 'ARIES dělá lékařskou kompresi přes 25 let. ROYAL BAY je ta samá odbornost pro sport – od prvního běhu po maraton.'
-        }
+      A: {
+        meta:   {primary:'Věda, ne fashion trend. Medical-grade komprese vyrobená v ČR, za kterou stojí 25+ let zkušeností ARIES.', headline:'Věda, ne fashion trend', desc:'Vyrobeno v ČR'},
+        search: {h1:'ROYAL BAY komprese', h2:'Věda, ne fashion trend', h3:'Vyrobeno v ČR',
+                 d1:'Medical-grade komprese vyrobená v ČR. Za ní 25+ let zkušeností z lékařské komprese.',
+                 d2:'Není to fashion doplněk. Je to funkční produkt od specialistů ARIES.'},
+        email:  {subject:'Věda, ne fashion trend', preheader:'ROYAL BAY – medical-grade komprese vyrobená v ČR firmou ARIES.'},
+        web:    {h1:'Věda, ne fashion trend', sub:'Medical-grade komprese vyrobená v ČR. Za ROYAL BAY stojí 25+ let zkušeností ARIES z lékařské komprese.'}
+      },
+      B: {
+        meta:   {primary:'Energy na výkon, Therapy na regeneraci, Extreme do terénu. Většina velikostí skladem. [DOPRAVA]', headline:'Většina velikostí skladem', desc:'Expresní doručení'},
+        search: {h1:'ROYAL BAY e-shop', h2:'Většina velikostí skladem', h3:'Expresní doručení',
+                 d1:'Energy, Motion, Therapy, Extreme. Kompletní řady pro výkon i regeneraci na jednom místě.',
+                 d2:'Většina velikostí skladem, expresní doručení, poradenství k výběru velikosti.'},
+        email:  {subject:'Řada na výkon i na regeneraci', preheader:'Energy, Motion, Therapy, Extreme – většinu velikostí máme skladem.'},
+        web:    {h1:'Komprese pro výkon i regeneraci', sub:'Energy, Motion, Therapy, Extreme. Většina velikostí skladem, expresní doručení. [DOPRAVA]'}
+      },
+      C: {
+        meta:   {primary:'Komprese od ARIES – firmy, která 25+ let dělá lékařskou kompresi. Teď i pro tvůj běh, kolo nebo regeneraci.', headline:'25+ let lékařské komprese', desc:'Odbornost ARIES'},
+        search: {h1:'Komprese od ARIES', h2:'25+ let lékařské komprese', h3:'Ověřeno pro sport',
+                 d1:'ARIES dělá lékařskou kompresi přes 25 let. ROYAL BAY je ta samá odbornost pro sport.',
+                 d2:'Stejná technologie jako v lékařské kompresi – jen v podobě na trénink.'},
+        email:  {subject:'25 let lékařské komprese, teď pro sport', preheader:'Stejná odbornost ARIES – od prvního běhu po maraton.'},
+        web:    {h1:'25+ let lékařské komprese. Teď i pro sport.', sub:'ARIES dělá lékařskou kompresi přes 25 let. ROYAL BAY je ta samá odbornost – od prvního běhu po maraton.'}
       },
       diffs: [
         {vs:'Compressport', text:'Compressport je víc fashion/sport než medical – je to jejich vlastní slabina. ROYAL BAY stojí na 25+ letech lékařské komprese ARIES.'},
@@ -321,27 +348,29 @@ const DATA = {
     },
     sk: {
       positioning: 'Medical-grade kompresné oblečenie vyrobené v ČR. Za ROYAL BAY stojí ARIES s viac ako 25 rokmi v lekárskej kompresii – veda, nie fashion trend. Podpora nôh pri športe aj rýchlejšia regenerácia po ňom.',
-      copy: {
-        meta: {
-          A: 'Veda, nie fashion trend. ROYAL BAY – medical-grade kompresia vyrobená v ČR. Za ňou 25+ rokov skúseností z lekárskej kompresie. 🇨🇿',
-          B: 'Kompletné rady Energy, Motion, Therapy aj Extreme. Väčšina veľkostí skladom, expresné doručenie. [DOPRAVA]',
-          C: 'Kompresia od ARIES – firmy, ktorá 25+ rokov robí lekársku kompresiu. Teraz aj pre tvoj beh, bicykel či regeneráciu.'
-        },
-        google: {
-          A: 'ROYAL BAY | Medical-grade kompresia | Vyrobené v ČR | Veda, nie fashion trend',
-          B: 'ROYAL BAY e-shop | Energy, Motion, Therapy, Extreme | Väčšina veľkostí skladom | [DOPRAVA]',
-          C: 'Kompresia od špecialistov ARIES | 25+ rokov v lekárskej kompresii | Overené pre šport aj regeneráciu'
-        },
-        email: {
-          A: 'ROYAL BAY nie je fashion doplnok. Je to medical-grade kompresia vyrobená v ČR firmou ARIES, ktorá lekársku kompresiu robí vyše 25 rokov.',
-          B: 'Energy na výkon, Therapy na regeneráciu, Extreme do terénu. Väčšinu veľkostí máme skladom a pošleme expresne.',
-          C: 'Rovnaká technológia, akú ARIES používa v lekárskej kompresii – len v podobe, ktorú si obuješ na tréning.'
-        },
-        web: {
-          A: 'ROYAL BAY. Veda, nie fashion trend. Medical-grade kompresia vyrobená v ČR, za ktorou stojí 25+ rokov skúseností ARIES.',
-          B: 'Rady pre výkon aj regeneráciu: Energy, Motion, Therapy, Extreme. Väčšina veľkostí skladom, expresné doručenie. [DOPRAVA]',
-          C: 'ARIES robí lekársku kompresiu vyše 25 rokov. ROYAL BAY je tá istá odbornosť pre šport – od prvého behu po maratón.'
-        }
+      A: {
+        meta:   {primary:'Veda, nie fashion trend. Medical-grade kompresia vyrobená v ČR, za ktorou stojí 25+ rokov skúseností ARIES.', headline:'Veda, nie fashion trend', desc:'Vyrobené v ČR'},
+        search: {h1:'ROYAL BAY kompresia', h2:'Veda, nie fashion trend', h3:'Vyrobené v ČR',
+                 d1:'Medical-grade kompresia vyrobená v ČR. Za ňou 25+ rokov skúseností z lekárskej kompresie.',
+                 d2:'Nie je to fashion doplnok. Je to funkčný produkt od špecialistov ARIES.'},
+        email:  {subject:'Veda, nie fashion trend', preheader:'ROYAL BAY – medical-grade kompresia vyrobená v ČR firmou ARIES.'},
+        web:    {h1:'Veda, nie fashion trend', sub:'Medical-grade kompresia vyrobená v ČR. Za ROYAL BAY stojí 25+ rokov skúseností ARIES z lekárskej kompresie.'}
+      },
+      B: {
+        meta:   {primary:'Energy na výkon, Therapy na regeneráciu, Extreme do terénu. Väčšina veľkostí skladom. [DOPRAVA]', headline:'Väčšina veľkostí skladom', desc:'Expresné doručenie'},
+        search: {h1:'ROYAL BAY e-shop', h2:'Väčšina veľkostí skladom', h3:'Expresné doručenie',
+                 d1:'Energy, Motion, Therapy, Extreme. Rady pre výkon aj regeneráciu na jednom mieste.',
+                 d2:'Väčšina veľkostí skladom, expresné doručenie, poradenstvo pri výbere veľkosti.'},
+        email:  {subject:'Rada na výkon aj na regeneráciu', preheader:'Energy, Motion, Therapy, Extreme – väčšinu veľkostí máme skladom.'},
+        web:    {h1:'Kompresia pre výkon aj regeneráciu', sub:'Energy, Motion, Therapy, Extreme. Väčšina veľkostí skladom, expresné doručenie. [DOPRAVA]'}
+      },
+      C: {
+        meta:   {primary:'Kompresia od ARIES – firmy, ktorá 25+ rokov robí lekársku kompresiu. Teraz aj pre tvoj beh či regeneráciu.', headline:'25+ rokov v kompresii', desc:'Odbornosť ARIES'},
+        search: {h1:'Kompresia od ARIES', h2:'25+ rokov v kompresii', h3:'Overené pre šport',
+                 d1:'ARIES robí lekársku kompresiu vyše 25 rokov. ROYAL BAY je tá istá odbornosť pre šport.',
+                 d2:'Rovnaká technológia ako v lekárskej kompresii – len v podobe na tréning.'},
+        email:  {subject:'25 rokov lekárskej kompresie pre šport', preheader:'Tá istá odbornosť ARIES – od prvého behu po maratón.'},
+        web:    {h1:'25+ rokov lekárskej kompresie. Teraz pre šport.', sub:'ARIES robí lekársku kompresiu vyše 25 rokov. ROYAL BAY je tá istá odbornosť – od prvého behu po maratón.'}
       },
       diffs: [
         {vs:'Compressport', text:'Compressport je viac fashion/sport než medical – je to ich vlastná slabina. ROYAL BAY stojí na 25+ rokoch lekárskej kompresie ARIES.'},
@@ -352,15 +381,14 @@ const DATA = {
   }
 };
 
-/* Volitelne doladenie pre sport. Prida sa ako zaverecna veta. */
 const SPORTS = {
   enervit: [
     {v:'', l:'Univerzálne (bez doladenia)'},
-    {v:'bezci',    l:'Bežci',    cz:'Ať běžíš první desítku nebo maraton.',        sk:'Či bežíš prvú desiatku alebo maratón.'},
-    {v:'cyklo',    l:'Cyklisti', cz:'Na nedělní vyjížďku i na dlouhé kilometry.',  sk:'Na nedeľnú vyjazďku aj na dlhé kilometre.'},
-    {v:'trail',    l:'Trail',    cz:'Do hor, kde se počítá každý gram.',           sk:'Do hôr, kde sa počíta každý gram.'},
-    {v:'triatlon', l:'Triatlon', cz:'Přes všechny tři disciplíny bez výpadku.',    sk:'Cez všetky tri disciplíny bez výpadku.'},
-    {v:'recovery', l:'Recovery', cz:'A hlavně potom, když se tělo dává dohromady.',sk:'A hlavne potom, keď sa telo dáva dokopy.'}
+    {v:'bezci',    l:'Bežci',    cz:'Ať běžíš první desítku nebo maraton.',         sk:'Či bežíš prvú desiatku alebo maratón.'},
+    {v:'cyklo',    l:'Cyklisti', cz:'Na nedělní vyjížďku i na dlouhé kilometry.',   sk:'Na nedeľnú vyjazďku aj na dlhé kilometre.'},
+    {v:'trail',    l:'Trail',    cz:'Do hor, kde se počítá každý gram.',            sk:'Do hôr, kde sa počíta každý gram.'},
+    {v:'triatlon', l:'Triatlon', cz:'Přes všechny tři disciplíny bez výpadku.',     sk:'Cez všetky tri disciplíny bez výpadku.'},
+    {v:'recovery', l:'Recovery', cz:'A hlavně potom, když se tělo dává dohromady.', sk:'A hlavne potom, keď sa telo dáva dokopy.'}
   ],
   royalbay: [
     {v:'', l:'Univerzálne (bez doladenia)'},
@@ -372,8 +400,6 @@ const SPORTS = {
     {v:'medical',  l:'Medical',  cz:'Pro rehabilitaci i každodenní oporu.', sk:'Pre rehabilitáciu aj každodennú oporu.'}
   ]
 };
-
-const GOOGLE_NOTE = 'Google Ads: headline max 30 znakov, description max 90. Tento text je koncept — pred nasadením rozsekať na jednotlivé assety.';
 
 const app     = document.getElementById('app');
 const elBrand = document.getElementById('brand');
@@ -395,16 +421,21 @@ function syncSports(){
   elSport.value = list.some(s => s.v === prev) ? prev : '';
 }
 
-function sportHook(brand, trh, sportKey){
-  if(!sportKey) return '';
-  const s = SPORTS[brand].find(x => x.v === sportKey);
+function hookText(brand, trh){
+  const key = elSport.value;
+  if(!key) return '';
+  const s = SPORTS[brand].find(x => x.v === key);
   return s ? (s[trh] || '') : '';
 }
 
-function copyText(brand, trh, ch, vk){
-  const base = DATA[brand][trh].copy[ch][vk];
-  const hook = sportHook(brand, trh, elSport.value);
-  return hook ? base + ' ' + hook : base;
+/* Hook sa prida len tam, kde je na to miesto a kde to pole dovoluje. */
+function assetText(brand, trh, vk, chKey, field){
+  const raw = DATA[brand][trh][vk][chKey][field.k];
+  if(!field.hook) return raw;
+  const hook = hookText(brand, trh);
+  if(!hook) return raw;
+  const joined = raw + ' ' + hook;
+  return joined.length <= field.max ? joined : raw;
 }
 
 function render(){
@@ -417,20 +448,23 @@ function render(){
   const sportName = elSport.selectedOptions[0] ? elSport.selectedOptions[0].textContent : '';
   current = {brand, brandName, trh, trhName, sport, sportName};
 
-  const variantBlocks = VARIANTS.map(v => {
-    const cards = CHANNELS.map(ch => {
-      const txt  = copyText(brand, trh, ch, v.k);
-      const over = ch === 'google' && txt.length > 90;
-      return '<button type="button" class="copy" data-text="' + esc(txt) + '">' +
-               '<span class="ch"><span>' + esc(CHANNEL_LABELS[ch]) + '</span>' +
-               '<span class="count" data-over="' + over + '">' + txt.length + ' znakov</span></span>' +
-               '<span class="tx">' + esc(txt) + '</span>' +
-               (over ? '<span class="limit">' + esc(GOOGLE_NOTE) + '</span>' : '') +
-             '</button>';
+  const panels = VARIANTS.map(v => {
+    const chans = CHANNELS.map(ch => {
+      const rows = ch.fields.map(f => {
+        const txt  = assetText(brand, trh, v.k, ch.k, f);
+        const over = txt.length > f.max;
+        return '<button type="button" class="asset" data-text="' + esc(txt) + '">' +
+                 '<span class="fname">' + esc(f.name) + '</span>' +
+                 '<span class="ftx">' + esc(txt) + '</span>' +
+                 '<span class="fc" data-over="' + over + '">' + txt.length + '/' + f.max + '</span>' +
+               '</button>';
+      }).join('');
+      return '<div class="chan"><p class="chan-name">' + esc(ch.name) + '</p>' +
+             '<p class="chan-note">' + esc(ch.note) + '</p>' + rows + '</div>';
     }).join('');
-    return '<div class="variant">' +
+    return '<div class="panel">' +
              '<div class="vhead"><span class="vkey">' + v.k + '</span><span class="vname">' + esc(v.name) + '</span></div>' +
-             '<p class="vdesc">' + esc(v.desc) + '</p>' + cards +
+             '<p class="vdesc">' + esc(v.desc) + '</p>' + chans +
            '</div>';
   }).join('');
 
@@ -446,11 +480,7 @@ function render(){
       '</div>' +
       '<h2>Positioning</h2>' +
       '<p class="usp">' + esc(d.positioning) + '</p>' +
-    '</div>' +
-    '<div class="panel">' +
-      '<h2>Copy — tri varianty na kanál, klikni pre skopírovanie</h2>' +
-      variantBlocks +
-    '</div>' +
+    '</div>' + panels +
     '<div class="internal">' +
       '<h2>Konkurenčný podklad</h2>' +
       '<p class="warnline">Interné — nepoužívať v copy. Slúži na argumentáciu pri výbere variantu.</p>' +
@@ -471,7 +501,6 @@ async function toClipboard(text){
     }catch(e2){ return false; }
   }
 }
-
 let toastTimer = null;
 function toast(msg, tone){
   elToast.textContent = msg;
@@ -488,42 +517,52 @@ async function copyAndTell(text, okMsg){
 function block(trh){
   const c = current, d = DATA[c.brand][trh];
   const trhName = trh === 'cz' ? 'Česko' : 'Slovensko';
-  let out = c.brandName + ' · ' + trhName + (c.sport ? ' · doladené pre: ' + c.sportName : ' · univerzálne') + '\n\n' +
-    'POSITIONING\n' + d.positioning + '\n\n';
+  let out = c.brandName + ' · ' + trhName + (c.sport ? ' · doladené pre: ' + c.sportName : ' · univerzálne') +
+            '\n\nPOSITIONING\n' + d.positioning + '\n';
   VARIANTS.forEach(v => {
-    out += 'VARIANT ' + v.k + ' — ' + v.name.toUpperCase() + '\n' + v.desc + '\n';
-    CHANNELS.forEach(ch => { out += '  ' + CHANNEL_LABELS[ch] + ': ' + copyText(c.brand, trh, ch, v.k) + '\n'; });
-    out += '\n';
+    out += '\n── VARIANT ' + v.k + ' — ' + v.name.toUpperCase() + ' ──\n' + v.desc + '\n';
+    CHANNELS.forEach(ch => {
+      out += '\n' + ch.name + '\n';
+      ch.fields.forEach(f => {
+        const t = assetText(c.brand, trh, v.k, ch.k, f);
+        out += '  ' + f.name + ' (' + t.length + '/' + f.max + '): ' + t + '\n';
+      });
+    });
   });
-  out += 'KONKURENČNÝ PODKLAD (interné, nepoužívať v copy)\n' +
-    d.diffs.map(x => 'vs ' + x.vs + ': ' + x.text).join('\n');
+  out += '\nKONKURENČNÝ PODKLAD (interné, nepoužívať v copy)\n' +
+         d.diffs.map(x => 'vs ' + x.vs + ': ' + x.text).join('\n');
   return out;
 }
 
 function markdown(trh){
   const c = current, d = DATA[c.brand][trh];
   const trhName = trh === 'cz' ? 'Česko' : 'Slovensko';
-  let out = '# ' + c.brandName + ' · ' + trhName + (c.sport ? ' · ' + c.sportName : ' · univerzálne') + '\n\n' +
-    '## Positioning\n' + d.positioning + '\n\n## Copy\n\n';
+  let out = '# ' + c.brandName + ' · ' + trhName + (c.sport ? ' · ' + c.sportName : ' · univerzálne') +
+            '\n\n## Positioning\n' + d.positioning + '\n';
   VARIANTS.forEach(v => {
-    out += '### Variant ' + v.k + ' — ' + v.name + '\n*' + v.desc + '*\n\n';
-    CHANNELS.forEach(ch => { out += '- **' + CHANNEL_LABELS[ch] + ':** ' + copyText(c.brand, trh, ch, v.k) + '\n'; });
-    out += '\n';
+    out += '\n## Variant ' + v.k + ' — ' + v.name + '\n*' + v.desc + '*\n';
+    CHANNELS.forEach(ch => {
+      out += '\n### ' + ch.name + '\n\n| Pole | Text | Znaky |\n|---|---|---|\n';
+      ch.fields.forEach(f => {
+        const t = assetText(c.brand, trh, v.k, ch.k, f);
+        out += '| ' + f.name + ' | ' + t.replace(/\|/g,'\\|') + ' | ' + t.length + '/' + f.max + ' |\n';
+      });
+    });
   });
-  out += '## Konkurenčný podklad (interné)\n' + d.diffs.map(x => '- **vs ' + x.vs + ':** ' + x.text).join('\n');
+  out += '\n## Konkurenčný podklad (interné)\n' + d.diffs.map(x => '- **vs ' + x.vs + ':** ' + x.text).join('\n');
   return out;
 }
 
 const FOOTNOTE = '\n\n---\n[DOPRAVA] = doplniť podľa aktuálnych podmienok; tvrdenie „expresné doručenie" potvrdiť.\n' +
-  'Google Ads texty sú koncept — headline max 30 znakov, description max 90.\n' +
-  'VITAR Sport · Content & Brand Engine · v2 z 20. 8. 2026\n';
+  'Limity: Meta primárny text 125, nadpis 40, popis 30 · Google Ads a Sklik nadpis 30, popis 90 · predmet e-mailu 50.\n' +
+  'Sklik reálne beží len v CZ. VITAR Sport · Content & Brand Engine · v3, 20. 8. 2026\n';
 
 elBrand.addEventListener('change', () => { syncSports(); render(); });
 [elTrh, elSport].forEach(el => el.addEventListener('change', render));
 
 elOut.addEventListener('click', e => {
-  const card = e.target.closest('.copy');
-  if(card) copyAndTell(card.dataset.text, 'Skopírované');
+  const a = e.target.closest('.asset');
+  if(a) copyAndTell(a.dataset.text, 'Skopírované');
 });
 
 document.getElementById('btnAll').addEventListener('click', () => {
