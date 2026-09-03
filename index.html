@@ -7,17 +7,10 @@
 <title>VITAR Sport USP Generator</title>
 <style>
 :root{
-  --e:#c81e26;
-  --r:#16325b;
-  --bg:#f5f6f9;
-  --card:#ffffff;
-  --card-2:#eef0f5;
-  --ink:#15161d;
-  --muted:#646b7c;
-  --border:#e0e4ec;
-  --note-bg:#fdf8e8;
-  --note-border:#e8d9a4;
-  --note-ink:#6b5a1f;
+  --e:#c81e26; --r:#16325b;
+  --bg:#f5f6f9; --card:#ffffff; --card-2:#eef0f5;
+  --ink:#15161d; --muted:#646b7c; --border:#e0e4ec;
+  --note-bg:#fdf8e8; --note-border:#e8d9a4; --note-ink:#6b5a1f;
   --warn:#b4541a;
   --shadow:0 1px 2px rgba(20,22,35,.05), 0 6px 18px -12px rgba(20,22,35,.25);
 }
@@ -53,7 +46,7 @@ body{
 header{padding:34px 0 0}
 .eyebrow{font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
 h1{font-size:clamp(1.65rem,4vw,2.15rem);font-weight:700;letter-spacing:-.022em;margin:0 0 6px;text-wrap:balance}
-.lede{margin:0;color:var(--muted);font-size:.94rem;max-width:60ch}
+.lede{margin:0;color:var(--muted);font-size:.94rem;max-width:62ch}
 .brand-rule{height:3px;background:var(--accent);border-radius:2px;margin:22px 0 20px;transition:background .25s ease}
 
 .banner{
@@ -73,6 +66,7 @@ select{
   background-repeat:no-repeat;background-position:right 12px center;
 }
 select:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.hint{font-size:.7rem;color:var(--muted);margin-top:2px}
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
 button{
   font:inherit;font-size:.85rem;font-weight:600;padding:9px 16px;border-radius:9px;cursor:pointer;
@@ -95,43 +89,43 @@ h2{font-size:.7rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase
   padding:16px 20px;border-radius:10px;border-left:3px solid var(--accent);
   background:color-mix(in oklab, var(--accent) 7%, var(--card));margin:0;
 }
-.note{
-  font-size:.83rem;line-height:1.5;background:var(--note-bg);color:var(--note-ink);
-  border:1px solid var(--note-border);border-radius:9px;padding:12px 14px;margin:0 0 18px;
+
+.variant{margin-bottom:18px}
+.variant:last-child{margin-bottom:0}
+.vhead{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin-bottom:4px}
+.vkey{
+  flex:0 0 auto;width:20px;height:20px;border-radius:6px;background:var(--accent);color:#fff;
+  font-size:.7rem;font-weight:700;line-height:20px;text-align:center;
 }
+:root[data-theme="dark"] .vkey{color:#101119}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .vkey{color:#101119}}
+.vname{font-size:.85rem;font-weight:700}
+.vdesc{font-size:.75rem;color:var(--muted);margin:0 0 8px;line-height:1.45}
 
-.benefits{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
-.benefits li{display:flex;gap:10px;align-items:flex-start;background:var(--card-2);border-radius:8px;padding:10px 12px;font-size:.85rem}
-.benefits .n{
-  flex:0 0 auto;width:19px;height:19px;border-radius:50%;background:var(--accent);color:#fff;
-  font-size:.63rem;font-weight:700;line-height:19px;text-align:center;margin-top:1px;
-}
-:root[data-theme="dark"] .benefits .n{color:#101119}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .benefits .n{color:#101119}}
-
-.diffs{display:flex;flex-direction:column;gap:8px}
-.diff{display:flex;gap:12px;font-size:.85rem;padding:10px 12px;border:1px solid var(--border);border-radius:8px}
-.diff .vs{flex:0 0 auto;min-width:106px;font-weight:700;color:var(--accent)}
-
-.copies{display:flex;flex-direction:column;gap:8px}
 .copy{
   position:relative;text-align:left;width:100%;display:block;background:var(--card-2);
   border:1px solid transparent;border-radius:10px;padding:12px 14px;cursor:pointer;
-  font:inherit;color:inherit;transition:border-color .15s ease,background .15s ease;
+  font:inherit;color:inherit;transition:border-color .15s ease,background .15s ease;margin-bottom:6px;
 }
 .copy:hover{border-color:var(--accent)}
-.copy[data-active="true"]{border-color:var(--accent);background:color-mix(in oklab, var(--accent) 6%, var(--card-2))}
 .copy .ch{
   display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;
   font-size:.63rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;
 }
-.copy .ch b{color:var(--accent);font-weight:600}
 .copy .count{margin-left:auto;letter-spacing:.04em;font-weight:600;text-transform:none}
 .copy .count[data-over="true"]{color:var(--warn)}
 .copy .tx{display:block;font-size:.88rem;line-height:1.5}
-.limit{
-  display:block;margin-top:8px;font-size:.74rem;line-height:1.45;color:var(--warn);font-weight:600;
+.limit{display:block;margin-top:8px;font-size:.74rem;line-height:1.45;color:var(--warn);font-weight:600}
+
+.internal{
+  border:1px dashed var(--border);border-radius:12px;padding:18px 20px;margin-top:4px;
+  background:transparent;
 }
+.internal h2{margin-bottom:6px}
+.internal .warnline{font-size:.74rem;color:var(--warn);font-weight:600;margin:0 0 12px}
+.diffs{display:flex;flex-direction:column;gap:8px}
+.diff{display:flex;gap:12px;font-size:.85rem;padding:10px 12px;border:1px solid var(--border);border-radius:8px}
+.diff .vs{flex:0 0 auto;min-width:120px;font-weight:700;color:var(--accent)}
 
 footer{margin-top:32px;font-size:.75rem;color:var(--muted);line-height:1.6}
 footer strong{color:var(--ink);font-weight:600}
@@ -161,14 +155,14 @@ footer strong{color:var(--ink);font-weight:600}
   <header>
     <p class="eyebrow">VITAR Sport · Content &amp; Brand Engine</p>
     <h1>USP Generator</h1>
-    <p class="lede">Positioning, benefity a hotové copy pre kampane Enervit a ROYAL BAY — podľa segmentu, trhu a kanála.</p>
+    <p class="lede">B2C copy pre Enervit a ROYAL BAY. Tri varianty na každý kanál, každý postavený na inom argumente. Texty sú univerzálne — šport je len voliteľné doladenie.</p>
     <div class="brand-rule"></div>
   </header>
 
   <p class="banner">
-    <b>MVP verzia.</b> Dve veci pred nasadením do kampane: dopravu doplň podľa aktuálnych podmienok
-    (v copy je zámerne placeholder <b>[DOPRAVA]</b>, aby sa nenasadilo staré číslo), a Google Ads texty
-    rozsekaj na headliny a descriptions — sú písané ako koncept, nie ako hotový asset.
+    <b>MVP — dve veci pred nasadením.</b> Doprava: <b>[DOPRAVA]</b> je placeholder, konkrétny prísľub doplňte podľa
+    aktuálnych podmienok (aj tvrdenie „expresné doručenie“ treba potvrdiť). Google Ads: texty sú koncept —
+    headline max 30 znakov, description max 90, pred nasadením rozsekať.
   </p>
 
   <div class="controls">
@@ -181,10 +175,6 @@ footer strong{color:var(--ink);font-weight:600}
         </select>
       </div>
       <div class="field">
-        <label for="segment">Segment</label>
-        <select id="segment"><!-- napĺňa sa podľa značky, viď syncSegments() --></select>
-      </div>
-      <div class="field">
         <label for="trh">Trh</label>
         <select id="trh">
           <option value="cz">Česko (CZ)</option>
@@ -192,13 +182,9 @@ footer strong{color:var(--ink);font-weight:600}
         </select>
       </div>
       <div class="field">
-        <label for="channel">Kanál</label>
-        <select id="channel">
-          <option value="meta">Meta (FB + IG)</option>
-          <option value="google">Google Ads</option>
-          <option value="email">Email</option>
-          <option value="web">Web / landing page</option>
-        </select>
+        <label for="sport">Prispôsobiť pre…</label>
+        <select id="sport"><!-- napĺňa sa podľa značky --></select>
+        <span class="hint">Voliteľné. Doladí texty pre konkrétnu kampaň.</span>
       </div>
     </div>
     <div class="actions">
@@ -211,8 +197,8 @@ footer strong{color:var(--ink);font-weight:600}
   <div class="result" id="result"></div>
 
   <footer>
-    <strong>Dáta k 17. 2. 2026.</strong> Positioning a diferenciátory platia. Ceny, doprava a odkazy na eventy
-    sú spred go-live ROYAL BAY e-shopu — pred nasadením over.
+    <strong>Copy prepracované 20. 8. 2026</strong> podľa feedbacku agentúry (Veronika Bačová).
+    Konkurenčné dáta z februára 2026. Ceny a doprava sú spred go-live ROYAL BAY e-shopu — pred nasadením over.
   </footer>
 
 </div>
@@ -221,465 +207,267 @@ footer strong{color:var(--ink);font-weight:600}
 <div id="toast" role="status" aria-live="polite"></div>
 
 <script>
-const DB = {
-  enervit: {
-    bezci: {
-      usp: 'Prémiová športová výživa s talianskou tradíciou. Kompletný systém gélov, izotonických nápojov a recovery produktov – od jedla pred pretekmi až po regeneráciu. Dôvera, na ktorú sa môžeš spoľahnúť.',
-      benefits: ['Kompletný systém: gély, izotoniky, tyčinky, recovery v jednom', 'Overené v extrémoch Grand Tours – výživa, ktorá pomohla Tadejovi Pogačarovi k 5 titulom na Tour de France', 'Prítomnosť na Prague Marathon, Prague Half, Košice Maratón', 'Talianska kvalita a 40+ ročná tradícia', 'Recovery produkty – kategória rastúca +18 % ročne'],
-      diffs: [
-        {vs:'Maurten', text:'Kompletný systém (gély + recovery + izotoniky), nie len drahé gély. Plus eventová komunita CZ/SK.'},
-        {vs:'Nutrend', text:'Premium positioning a TdF asociácia. Menej mass-market, viac cielená na vytrvalcov.'},
-        {vs:'GU/SiS', text:'Najsilnejšia eventová prítomnosť v CZ/SK. 8 Tier 1 eventov – žiadny konkurent to nemá.'}
-      ],
-      copy: {
-        meta: {cz: 'Enervit – výživa, na kterou se můžeš spolehnout. Před závodem, během něj i po něm. 🏃‍♂️ #FueledByEnervit', sk: 'Enervit – výživa, na ktorú sa môžeš spoľahnúť. Pred pretekom, počas neho aj po ňom. 🏃‍♂️ #FueledByEnervit'},
-        google: {cz: 'Enervit – prémiová sportovní výživa | Gely, izotoniky, recovery | Fueling pro sportovce | [DOPRAVA]', sk: 'Enervit – prémiová športová výživa | Gély, izotoniky, recovery | Fueling pre maratón | [DOPRAVA]'},
-        email: {cz: 'Připravujete se na závod? Systém Enervit vás provede od přípravy až po regeneraci. Gely, izotoniky, proteiny – vše, co potřebujete na jednom místě.', sk: 'Pripravujete sa na preteky? Systém Enervit vás prevedie od prípravy až po regeneráciu. Gély, izotoniky, proteíny – všetko, čo potrebujete.'},
-        web: {cz: 'Fueled by ENERVIT. Prémiová italská sportovní výživa – kompletní systém pro sportovce. Od energetických gelů přes izotoniky až po recovery. Ready to win – together.', sk: 'Fueled by ENERVIT. Prémiová talianska športová výživa – kompletný systém pre športovcov. Od energetických gélov cez izotoniky až po recovery. Ready to win – together.'}
-      }
-    },
-    cyklo: {
-      usp: 'Výživa overená tímom UAE na Tour de France. Prémiová cyklistická výživa pre dlhé jazdy, preteky a regeneráciu. Systém overený v profesionálnom pelotone.',
-      benefits: ['Energia tímu UAE na Tour de France', 'Long ride fueling: gély, tyčinky, izotoniky', 'Road Classics partner – Pálava, Vysočina, Ještěd', 'Recovery po etapách – proteíny a regenerácia', 'Talianska kvalita – tam kde sa rodí cyklistika'],
-      diffs: [
-        {vs:'Maurten', text:'Kompletný cyklo systém vrátane tyčiniek a recovery. Maurten má len gély a nápoje.'},
-        {vs:'PowerBar', text:'Premium positioning vs. mass-market. Tour de France vs. supermarketový regál.'},
-        {vs:'SiS', text:'INEOS Grenadiers vs. Tour de France – porovnateľná elitná asociácia, ale Enervit = celý systém.'}
-      ],
-      copy: {
-        meta: {cz: 'Tour de France. Road Classics. Vaše tréninky. Jedno mají společné – Enervit. ⚡ #FueledByEnervit', sk: 'Tour de France. Road Classics. Vaše tréningy. Jedno majú spoločné – Enervit. ⚡ #FueledByEnervit'},
-        google: {cz: 'Výživa prověřená týmem UAE na Tour de France | Gely, tyčinky, izotoniky pro cyklisty | Road Classics partner | [DOPRAVA]', sk: 'Výživa overená tímom UAE na Tour de France | Gély, tyčinky, izotoniky pre cyklistov | Road Classics partner | [DOPRAVA]'},
-        email: {cz: 'Stejná výživa jako v týmu UAE na Tour de France. Enervit gely, izotoniky a tyčinky – váš systém pro dlouhé jízdy a rychlou regeneraci.', sk: 'Rovnaká výživa ako v tíme UAE na Tour de France. Enervit gély, izotoniky a tyčinky – váš systém pre dlhé jazdy a rýchlu regeneráciu.'},
-        web: {cz: 'Fueled by ENERVIT. Energie týmu UAE na Tour de France. Kompletní výživový systém pro cyklisty – od dlouhých jízd po závody.', sk: 'Fueled by ENERVIT. Energia tímu UAE na Tour de France. Kompletný výživový systém pre cyklistov – od dlhých jázd po preteky.'}
-      }
-    },
-    trail: {
-      usp: 'Vytrvalostná výživa pre hory a dlhé trate s prevýšením. Systém gélov a izotonických nápojov navrhnutý pre extrémne podmienky – keď záleží na každom grame a každej kalórii.',
-      benefits: ['Kompaktné gély pre minimalistický beh v teréne', 'Izotoniky pre dlhodobú hydratáciu v horách', 'Recovery po ultra pretekoch – proteíny, regenerácia', 'Systém overený na Tour de France – extrémne podmienky', 'Fueling na 50+ km trate s prevýšením'],
-      diffs: [
-        {vs:'Maurten', text:'Širší sortiment vrátane tyčiniek a recovery. Cenovo dostupnejší pre bežcov, ktorí konzumujú viac na ultra.'},
-        {vs:'GU Energy', text:'Kompletný systém vs. primárne gély. Recovery rada navyše.'},
-        {vs:'Endurance', text:'Talianska kvalita a TdF tradícia. Medzinárodný reach a know-how vs. lokálna značka.'}
-      ],
-      copy: {
-        meta: {cz: 'Hory si nevybíráš. Výživu ano. Enervit – systém pro trail a ultra běžce. 🏔️ #FueledByEnervit', sk: 'Hory si nevyberáš. Výživu áno. Enervit – systém pre trail a ultra bežcov. 🏔️ #FueledByEnervit'},
-        google: {cz: 'Enervit pro trail running | Gely, izotoniky pro hory | Kompaktní, lehké, účinné | [DOPRAVA]', sk: 'Enervit pre trail running | Gély, izotoniky pre hory | Kompaktné, ľahké, účinné | [DOPRAVA]'},
-        email: {cz: 'Trail a ultra běh vyžaduje precizní fueling. Enervit systém – gely, izotoniky a recovery pro hory.', sk: 'Trail a ultra beh vyžaduje precízny fueling. Enervit systém – gély, izotoniky a recovery pre hory.'},
-        web: {cz: 'Fueled by ENERVIT. Trail running výživa pro hory. Kompaktní gely, izotoniky a recovery – systém pro ultra vzdálenosti.', sk: 'Fueled by ENERVIT. Trail running výživa pre hory. Kompaktné gély, izotoniky a recovery – systém pre ultra vzdialenosti.'}
-      }
-    },
-    triatlon: {
-      usp: 'Multisportová výživa pre plávanie, cyklistiku a beh. Kompletný fueling systém pre prechody medzi disciplínami a rýchlu regeneráciu.',
-      benefits: ['Multisport systém – jeden brand, tri disciplíny', 'Rýchla absorpcia gélov medzi disciplínami', 'Izotoniky pre dlhodobý výkon', 'Po triatlone – recovery drinky', 'Tour de France + maratónová dôvera v jednom'],
-      diffs: [
-        {vs:'SiS', text:'Kompletný systém vrátane recovery. SiS má silný gel, ale slabšiu recovery radu.'},
-        {vs:'GU', text:'Systémový prístup – nie len gély, ale aj izotoniky, tyčinky a recovery.'},
-        {vs:'Maurten', text:'Cenovo dostupnejší pri porovnateľnom výkone gélov. Plus tyčinky a recovery navyše.'}
-      ],
-      copy: {
-        meta: {cz: 'Plavat. Šlapat. Běžet. A pak regenerovat. Enervit – systém pro triatlonisty. 🏊‍♂️🚴‍♂️🏃‍♂️', sk: 'Plávať. Šliapať. Bežať. A potom regenerovať. Enervit – systém pre triatlonistov. 🏊‍♂️🚴‍♂️🏃‍♂️'},
-        google: {cz: 'Enervit pro triatlon | Gely, izotoniky, recovery | Fueling pro půlku i plný Ironman | [DOPRAVA]', sk: 'Enervit pre triatlon | Gély, izotoniky, recovery | Fueling pre polovičný aj plný Ironman | [DOPRAVA]'},
-        email: {cz: 'Triatlon = tři disciplíny, jeden systém. Enervit vás provede od startu po regeneraci.', sk: 'Triatlon = tri disciplíny, jeden systém. Enervit vás prevedie od štartu po regeneráciu.'},
-        web: {cz: 'Fueled by ENERVIT. Výživa pro triatlonisty. Systém gelů, izotoniků a recovery pro multisport výkon.', sk: 'Fueled by ENERVIT. Výživa pre triatlonistov. Systém gélov, izotonických nápojov a recovery pre multisport výkon.'}
-      }
-    },
-    vytrvalost: {
-      usp: 'Prémiová športová výživa pre každého vytrvalca. Kompletný systém od talianskeho lídra – gély, izotoniky, tyčinky a recovery. Od tréningu po preteky, od rána do večera.',
-      benefits: ['Kompletný systém: gély, izotoniky, tyčinky, recovery', 'Tím UAE na Tour de France + Prague Marathon – overené na najvyššej úrovni', 'Recovery kategória rastúca +18 % ročne', '40+ rokov talianskej tradície', 'Eventová komunita CZ/SK (8 Tier 1 eventov)'],
-      diffs: [
-        {vs:'Nutrend', text:'Premium vs. mass-market. Vytrvalostný fokus vs. fitness.'},
-        {vs:'Endurance', text:'Medzinárodná značka s TdF tradíciou. Širší sortiment.'},
-        {vs:'Maurten', text:'Kompletný systém za rozumnú cenu. Nie len elitné gély.'}
-      ],
-      copy: {
-        meta: {cz: 'Fueled by ENERVIT. Ready to win – together. Prémiová sportovní výživa. Gely, izotoniky, recovery. 💪', sk: 'Fueled by ENERVIT. Ready to win – together. Prémiová športová výživa. Gély, izotoniky, recovery. 💪'},
-        google: {cz: 'Enervit – prémiová sportovní výživa | Systém gelů, izotoniků, recovery | Výživa ověřená na Tour de France | [DOPRAVA]', sk: 'Enervit – prémiová športová výživa | Systém gélov, izotonických nápojov, recovery | Výživa overená na Tour de France | [DOPRAVA]'},
-        email: {cz: 'Enervit – jeden systém od startu až do cíle. Gely před závodem, izotoniky během, recovery po. Ready to win – together.', sk: 'Enervit – jeden systém od štartu až do cieľa. Gély pred pretekom, izotoniky počas, recovery po. Ready to win – together.'},
-        web: {cz: 'Fueled by ENERVIT. Kompletní systém prémiové sportovní výživy. 40+ let italské tradice. Výživa ověřená na Tour de France.', sk: 'Fueled by ENERVIT. Kompletný systém prémiovej športovej výživy. 40+ rokov talianskej tradície. Výživa overená na Tour de France.'}
-      }
-    },
-    recovery: {
-      usp: 'Regenerácia je polovica výkonu. Enervit recovery systém – proteíny, regeneračné nápoje a doplnky pre rýchly návrat do formy. Najrýchlejšie rastúca kategória športovej výživy.',
-      benefits: ['Recovery = najrýchlejšie rastúca kategória (+18 % YoY)', 'Proteíny, regeneračné nápoje, aminokyseliny', 'Post-race recovery po každom evente', 'Systémový prístup: fueling + recovery = kompletný cyklus', 'Odporúčania od profi športovcov'],
-      diffs: [
-        {vs:'Maurten', text:'Maurten nemá recovery produkty. Enervit pokrýva celý cyklus.'},
-        {vs:'Nutrend', text:'Cielené na vytrvalcov, nie na fitness. Premium recovery.'},
-        {vs:'SiS', text:'Širšia recovery rada vrátane REGO a proteínových shake-ov.'}
-      ],
-      copy: {
-        meta: {cz: 'Výkon začíná regenerací. Enervit recovery – proteiny, regenerace, návrat do formy. ♻️ #EnervitRecovery', sk: 'Výkon začína regeneráciou. Enervit recovery – proteíny, regenerácia, návrat do formy. ♻️ #EnervitRecovery'},
-        google: {cz: 'Enervit Recovery | Špičková regenerace a proteiny | Připravte tělo na další trénink | [DOPRAVA]', sk: 'Enervit Recovery | Špičková regenerácia a proteíny | Pripravte telo na ďalší tréning | [DOPRAVA]'},
-        email: {cz: 'Víte, že recovery je nejrychleji rostoucí kategorie sportovní výživy (+18 % ročně)? Enervit recovery systém – proteiny a regenerace po každém tréninku.', sk: 'Viete, že recovery je najrýchlejšie rastúca kategória športovej výživy (+18 % ročne)? Enervit recovery systém – proteíny a regenerácia po každom tréningu.'},
-        web: {cz: 'Enervit Recovery. Regenerace je polovinou výkonu. Proteiny, regenerační nápoje a systém pro rychlý návrat do formy.', sk: 'Enervit Recovery. Regenerácia je polovicou výkonu. Proteíny, regeneračné nápoje a systém pre rýchly návrat do formy.'}
-      }
-    }
-  },
-  royalbay: {
-    bezci: {
-      usp: 'Medical-grade kompresné oblečenie vyrobené v ČR. Nie fashion – funkčný produkt s 25+ ročnou tradíciou výrobcu ARIES. Podpora nôh pri behu a rýchlejšia regenerácia.',
-      benefits: ['Medical-grade certifikácia – medicínsky overená kompresia', 'Výroba v ČR (ARIES) – 25+ rokov skúseností', 'O 20-40 % lacnejšie ako Compressport/CEP', 'Energy + Motion rady pre aktívny beh', 'Domáca značka – CZ/SK jazyk, logistika, podpora'],
-      diffs: [
-        {vs:'Compressport', text:'Medical-grade (nie len fashion). CZ výroba. O 20-40 % lepšia cena.'},
-        {vs:'CEP', text:'Porovnateľná medical kvalita za nižšiu cenu. Domáca pozícia v CEE.'},
-        {vs:'STOX Energy', text:'Domáca prítomnosť v CEE. Jazyk, logistika, kultúra. Nižšia cena.'}
-      ],
-      copy: {
-        meta: {cz: 'ROYAL BAY – komprese, která má smysl. Medical-grade, vyrobeno v ČR. Pro běžce, kteří to myslí vážně. 🇨🇿', sk: 'ROYAL BAY – kompresia, ktorá má zmysel. Medical-grade, vyrobené v ČR. Pre bežcov, ktorí to myslia vážne. 🇨🇿'},
-        google: {cz: 'ROYAL BAY kompresní ponožky | Medical-grade | Vyrobeno v ČR | Podpora při běhu a regenerace | [DOPRAVA]', sk: 'ROYAL BAY kompresné ponožky | Medical-grade | Vyrobené v ČR | Podpora pri behu a regenerácia | [DOPRAVA]'},
-        email: {cz: 'Komprese, která funguje. ROYAL BAY – medical-grade ponožky a návleky vyrobené v ČR firmou ARIES s 25+ lety zkušeností. Výkon i regenerace.', sk: 'Kompresia, ktorá funguje. ROYAL BAY – medical-grade ponožky a návleky vyrobené v ČR firmou ARIES s 25+ rokmi skúseností. Výkon aj regenerácia.'},
-        web: {cz: 'ROYAL BAY. Medical-grade komprese vyrobená v ČR. 25+ let zkušeností s lékařskou kompresí. Teď i pro sport. Výkon a regenerace v jednom.', sk: 'ROYAL BAY. Medical-grade kompresia vyrobená v ČR. 25+ rokov skúseností s lekárskou kompresiou. Teraz aj pre šport. Výkon a regenerácia v jednom.'}
-      }
-    },
-    cyklo: {
-      usp: 'Kompresné oblečenie pre cyklistov s medical-grade certifikáciou. Podpora nôh pri dlhých jazdách, prevencia kŕčov a rýchlejšia regenerácia. Vyrobené v ČR.',
-      benefits: ['Medical-grade kompresia pre nohy pri dlhom sedení', 'Prevencia kŕčov a únavy nôh', 'Recovery po etapách – Therapy rada', 'CZ výroba ARIES – kvalita a tradícia', 'Cenovo dostupnejšie ako STOX/Compressport'],
-      diffs: [
-        {vs:'Compressport', text:'Medical-grade focus (nie len sport fashion). CZ výroba.'},
-        {vs:'2XU', text:'Silnejšia CEE prítomnosť. Medical + recovery angle.'},
-        {vs:'STOX', text:'Domáca pozícia. Nižšia cena. B2B + DTC kanály.'}
-      ],
-      copy: {
-        meta: {cz: 'Nohy na kole si zaslouží víc než fashion. ROYAL BAY – medical-grade komprese pro cyklisty. Vyrobeno v ČR. 🚴', sk: 'Nohy na bicykli si zaslúžia viac než fashion. ROYAL BAY – medical-grade kompresia pre cyklistov. Vyrobené v ČR. 🚴'},
-        google: {cz: 'ROYAL BAY pro cyklisty | Medical-grade komprese nohou | Prevence křečí | Vyrobeno v ČR | [DOPRAVA]', sk: 'ROYAL BAY pre cyklistov | Medical-grade kompresia nôh | Prevencia kŕčov | Vyrobené v ČR | [DOPRAVA]'},
-        email: {cz: 'Dlouhé jízdy? ROYAL BAY medical-grade komprese pomáhá nohám lépe zvládat zátěž a rychleji regenerovat.', sk: 'Dlhé jazdy? ROYAL BAY medical-grade kompresia pomáha nohám lepšie zvládať záťaž a rýchlejšie regenerovať.'},
-        web: {cz: 'ROYAL BAY pro cyklisty. Medical-grade komprese nohou. Prevence křečí, podpora při jízdě, rychlejší regenerace.', sk: 'ROYAL BAY pre cyklistov. Medical-grade kompresia nôh. Prevencia kŕčov, podpora pri jazde, rýchlejšia regenerácia.'}
-      }
-    },
-    trail: {
-      usp: 'Kompresia pre hory a nerovný terén. Extreme rada – stabilita, odolnosť a medical-grade podpora pre trail bežcov. Vyrobené v ČR pre slovenské a české hory.',
-      benefits: ['Extreme rada pre náročný terén a prevýšenie', 'Stabilita na nerovnom povrchu', 'Medical-grade – podpora kĺbov a svalov v teréne', 'CZ výroba – odolné materiály', 'Cenovo dostupnejšie ako Compressport Trail rada'],
-      diffs: [
-        {vs:'Compressport', text:'Medical-grade focus. Cenovo dostupnejší. Domáca značka pre CZ/SK trail.'},
-        {vs:'CEP', text:'Trail-specific produkty. Lepšia cena. Lokálna podpora.'},
-        {vs:'2XU', text:'CEE trail komunita. Jazyk a kultúra. Medical certifikácia.'}
-      ],
-      copy: {
-        meta: {cz: 'Hory. Terén. Převýšení. ROYAL BAY Extreme – komprese pro trail, vyrobená v ČR. 🏔️', sk: 'Hory. Terén. Prevýšenie. ROYAL BAY Extreme – kompresia pre trail, vyrobená v ČR. 🏔️'},
-        google: {cz: 'ROYAL BAY Extreme | Komprese pro trail running | Medical-grade | Stabilita v terénu | [DOPRAVA]', sk: 'ROYAL BAY Extreme | Kompresia pre trail running | Medical-grade | Stabilita v teréne | [DOPRAVA]'},
-        email: {cz: 'Trail running vyžaduje víc než běžnou kompresi. ROYAL BAY Extreme – medical-grade podpora pro hory a terén.', sk: 'Trail running vyžaduje viac než bežnú kompresiu. ROYAL BAY Extreme – medical-grade podpora pre hory a terén.'},
-        web: {cz: 'ROYAL BAY Extreme. Medical-grade komprese pro trail running. Stabilita v terénu, odolnost, CZ výroba.', sk: 'ROYAL BAY Extreme. Medical-grade kompresia pre trail running. Stabilita v teréne, odolnosť, CZ výroba.'}
-      }
-    },
-    triatlon: {
-      usp: 'Kompresné oblečenie pre triatlon – od plávania po beh. Medical-grade podpora v každej disciplíne a rýchlejší recovery medzi nimi.',
-      benefits: ['Multi-disciplinárna podpora', 'Recovery medzi disciplínami', 'Medical-grade certifikácia', 'Motion rada pre flexibilitu', 'CZ výroba – kvalita a dostupnosť'],
-      diffs: [
-        {vs:'2XU', text:'Silnejšia CEE prítomnosť a nižšia cena pri porovnateľnej kvalite.'},
-        {vs:'Compressport', text:'Medical-grade focus. Cenovo dostupnejší.'},
-        {vs:'CEP', text:'Rovnaký medical background (medi vs ARIES). Nižšia cena.'}
-      ],
-      copy: {
-        meta: {cz: 'Plavat. Šlapat. Běžet. Regenerovat. ROYAL BAY – medical-grade komprese pro triatlonisty. 🏊‍♂️🚴‍♂️🏃‍♂️', sk: 'Plávať. Šliapať. Bežať. Regenerovať. ROYAL BAY – medical-grade kompresia pre triatlonistov. 🏊‍♂️🚴‍♂️🏃‍♂️'},
-        google: {cz: 'ROYAL BAY pro triatlon | Medical-grade komprese | Recovery mezi disciplínami | Vyrobeno v ČR', sk: 'ROYAL BAY pre triatlon | Medical-grade kompresia | Recovery medzi disciplínami | Vyrobené v ČR'},
-        email: {cz: 'Triatlon na 100 %. ROYAL BAY medical-grade komprese – podpora při každé disciplíně a rychlejší regenerace.', sk: 'Triatlon na 100 %. ROYAL BAY medical-grade kompresia – podpora pri každej disciplíne a rýchlejšia regenerácia.'},
-        web: {cz: 'ROYAL BAY pro triatlon. Medical-grade komprese pro všechny tři disciplíny. Výkon a regenerace v jednom.', sk: 'ROYAL BAY pre triatlon. Medical-grade kompresia pre všetky tri disciplíny. Výkon a regenerácia v jednom.'}
-      }
-    },
-    vytrvalost: {
-      usp: 'Medical-grade kompresné oblečenie pre každého vytrvalca. Výroba v ČR, 25+ rokov skúseností. Výkon a recovery v jednom produkte.',
-      benefits: ['Medical-grade certifikácia', 'CZ výroba (ARIES) – 25+ rokov', 'Široké portfólio: Energy, Therapy, Motion, Extreme', 'O 20-40 % lacnejšie ako premium konkurencia', 'Domáca značka – jazyk, logistika, podpora'],
-      diffs: [
-        {vs:'STOX', text:'Domáca CEE pozícia. Nižšia cena. B2B + DTC.'},
-        {vs:'Compressport', text:'Medical-grade (nie fashion). CZ výroba. Lepšia cena.'},
-        {vs:'CEP', text:'Porovnateľná kvalita za nižšiu cenu. Lokálna dostupnosť.'}
-      ],
-      copy: {
-        meta: {cz: 'Věda, ne fashion trend. ROYAL BAY – medical-grade komprese vyrobená v ČR. 25 let zkušeností. 🇨🇿', sk: 'Veda, nie fashion trend. ROYAL BAY – medical-grade kompresia vyrobená v ČR. 25 rokov skúseností. 🇨🇿'},
-        google: {cz: 'ROYAL BAY | Medical-grade komprese | Vyrobeno v ČR | 25+ let zkušeností | [DOPRAVA]', sk: 'ROYAL BAY | Medical-grade kompresia | Vyrobené v ČR | 25+ rokov skúseností | [DOPRAVA]'},
-        email: {cz: 'Komprese, která má smysl. ROYAL BAY – medical-grade, vyrobeno v ČR firmou ARIES. 25+ let zkušeností s lékařskou kompresí. Teď i pro sport.', sk: 'Kompresia, ktorá má zmysel. ROYAL BAY – medical-grade, vyrobené v ČR firmou ARIES. 25+ rokov skúseností s lekárskou kompresiou. Teraz aj pre šport.'},
-        web: {cz: 'ROYAL BAY. Věda, ne fashion trend. Medical-grade komprese vyrobená v ČR. 25+ let lékařské komprese, teď i pro sport.', sk: 'ROYAL BAY. Veda, nie fashion trend. Medical-grade kompresia vyrobená v ČR. 25+ rokov lekárskej kompresie, teraz aj pre šport.'}
-      }
-    },
-    recovery: {
-      usp: 'Regenerácia nôh po výkone. ROYAL BAY Therapy a Relax rady – medical-grade kompresia špeciálne pre recovery. Overená tradícia ARIES v medicínskej kompresii.',
-      benefits: ['Therapy rada – cielená recovery kompresia', 'Relax rada – domáce použitie a oddych', 'Medical-grade certifikácia', '25+ rokov v medicínskej kompresii', 'Ideálne po behu, cyklistike, triatlone'],
-      diffs: [
-        {vs:'STOX Recovery', text:'Domáca dostupnosť. Nižšia cena. Medical background ARIES.'},
-        {vs:'CEP Recovery', text:'Porovnateľná medical kvalita. Lepšia cena a dostupnosť v CEE.'},
-        {vs:'Compressport', text:'Špecializované Therapy a Relax rady – nie len „recovery verzia" športových ponožiek.'}
-      ],
-      copy: {
-        meta: {cz: 'Výkon začíná regenerací. ROYAL BAY Therapy – medical-grade komprese pro recovery. Vyrobeno v ČR. ♻️', sk: 'Výkon začína regeneráciou. ROYAL BAY Therapy – medical-grade kompresia pre recovery. Vyrobené v ČR. ♻️'},
-        google: {cz: 'ROYAL BAY Therapy | Recovery komprese | Medical-grade | Regenerace nohou | Vyrobeno v ČR', sk: 'ROYAL BAY Therapy | Recovery kompresia | Medical-grade | Regenerácia nôh | Vyrobené v ČR'},
-        email: {cz: 'Po každém tréninku – ROYAL BAY Therapy. Medical-grade komprese pro nohy, regeneraci a návrat do formy.', sk: 'Po každom tréningu – ROYAL BAY Therapy. Medical-grade kompresia pre nohy, regeneráciu a návrat do formy.'},
-        web: {cz: 'ROYAL BAY Therapy. Medical-grade komprese pro recovery. Regenerace nohou po sportu. 25+ let zkušeností s lékařskou kompresí.', sk: 'ROYAL BAY Therapy. Medical-grade kompresia pre recovery. Regenerácia nôh po športe. 25+ rokov skúseností s lekárskou kompresiou.'}
-      }
-    },
-    medical: {
-      usp: 'Medicínsky certifikovaná kompresia od ARIES – 25+ rokov v lekárskej kompresii. Graduated, targeted aj medical kompresia. Pre fyzioterapeutov, rehabilitáciu a pacientov.',
-      benefits: ['Medicínska certifikácia – nie je to len „kompresné oblečenie"', 'Graduated, targeted a medical kompresia v portfóliu', 'ARIES – 25+ rokov v lekárskej kompresii', 'Výroba v ČR – kvalita a rýchla dostupnosť', 'Therapy rada pre rehabilitáciu'],
-      diffs: [
-        {vs:'CEP/medi', text:'Porovnateľná medical kvalita. Cenovo dostupnejší. CZ výroba.'},
-        {vs:'Compressport', text:'Skutočná medical certifikácia, nie len športová kompresia.'},
-        {vs:'Generic medical', text:'Športový dizajn a komfort plus medical funkcia.'}
-      ],
-      copy: {
-        meta: {cz: 'Komprese od specialistů na lékařskou kompresi. ROYAL BAY – ARIES, 25+ let medicínských zkušeností. Pro rehabilitaci i sport. 🏥', sk: 'Kompresia od špecialistov na lekársku kompresiu. ROYAL BAY – ARIES, 25+ rokov medicínskych skúseností. Pre rehabilitáciu aj šport. 🏥'},
-        google: {cz: 'ROYAL BAY Medical | Lékařská komprese | Certifikovaná | ARIES ČR | Rehabilitace a sport', sk: 'ROYAL BAY Medical | Lekárska kompresia | Certifikovaná | ARIES ČR | Rehabilitácia a šport'},
-        email: {cz: 'ROYAL BAY – medical-grade komprese od ARIES. 25+ let v lékařské kompresi. Vhodné pro rehabilitaci, fyzioterapii a sportovní recovery.', sk: 'ROYAL BAY – medical-grade kompresia od ARIES. 25+ rokov v lekárskej kompresii. Vhodné pre rehabilitáciu, fyzioterapiu a športový recovery.'},
-        web: {cz: 'ROYAL BAY Medical. Lékařská komprese od ARIES – 25+ let zkušeností. Graduated, targeted a medical komprese. Pro rehabilitaci i sport.', sk: 'ROYAL BAY Medical. Lekárska kompresia od ARIES – 25+ rokov skúseností. Graduated, targeted a medical kompresia. Pre rehabilitáciu aj šport.'}
-      }
-    }
-  }
-};
+/* ─────────────────────────────────────────────────────────────
+   Struktura v2 (20.8.2026):
+   Copy sa uz nedeli podla sportu. Kazdy kanal ma tri varianty,
+   kazdy postaveny na inom USP argumente:
+     A brandovy · B nakupny · C dokazovy
+   Sport je volitelny filter, ktory prida doladujucu vetu.
+   ───────────────────────────────────────────────────────────── */
 
-// Ceska vrstva pre positioning / benefity / diferenciatory.
-// DB drzi slovenske znenie; pri trh === 'cz' sa pouzije toto.
-const CZ = {
-  enervit: {
-    bezci: {
-      usp: 'Prémiová sportovní výživa s italskou tradicí. Kompletní systém gelů, izotonických nápojů a recovery produktů – od jídla před závodem až po regeneraci. Důvěra, na kterou se můžeš spolehnout.',
-      benefits: ['Kompletní systém: gely, izotoniky, tyčinky, recovery v jednom', 'Ověřeno v extrémech Grand Tours – výživa, která pomohla Tadeji Pogačarovi k 5 titulům na Tour de France', 'Přítomnost na Prague Marathon, Prague Half, Košice Maratón', 'Italská kvalita a více než 40 let tradice', 'Recovery produkty – kategorie rostoucí +18 % ročně'],
-      diffs: [
-        {vs:'Maurten', text:'Kompletní systém (gely + recovery + izotoniky), ne jen drahé gely. Plus eventová komunita CZ/SK.'},
-        {vs:'Nutrend', text:'Premium positioning a TdF asociace. Méně mass-market, více cílená na vytrvalce.'},
-        {vs:'GU/SiS', text:'Nejsilnější eventová přítomnost v CZ/SK. 8 Tier 1 eventů – žádný konkurent to nemá.'}
-      ]
-    },
-    cyklo: {
-      usp: 'Výživa prověřená týmem UAE na Tour de France. Prémiová cyklistická výživa pro dlouhé jízdy, závody a regeneraci. Systém prověřený v profesionálním pelotonu.',
-      benefits: ['Energie týmu UAE na Tour de France', 'Long ride fueling: gely, tyčinky, izotoniky', 'Road Classics partner – Pálava, Vysočina, Ještěd', 'Recovery po etapách – proteiny a regenerace', 'Italská kvalita – tam, kde se rodí cyklistika'],
-      diffs: [
-        {vs:'Maurten', text:'Kompletní cyklo systém včetně tyčinek a recovery. Maurten má jen gely a nápoje.'},
-        {vs:'PowerBar', text:'Premium positioning vs. mass-market. Tour de France vs. supermarketový regál.'},
-        {vs:'SiS', text:'INEOS Grenadiers vs. Tour de France – srovnatelná elitní asociace, ale Enervit = celý systém.'}
-      ]
-    },
-    trail: {
-      usp: 'Vytrvalostní výživa pro hory a dlouhé tratě s převýšením. Systém gelů a izotonických nápojů navržený pro extrémní podmínky – když záleží na každém gramu a každé kalorii.',
-      benefits: ['Kompaktní gely pro minimalistický běh v terénu', 'Izotoniky pro dlouhodobou hydrataci v horách', 'Recovery po ultra závodech – proteiny, regenerace', 'Systém prověřený na Tour de France – extrémní podmínky', 'Fueling na 50+ km tratě s převýšením'],
-      diffs: [
-        {vs:'Maurten', text:'Širší sortiment včetně tyčinek a recovery. Cenově dostupnější pro běžce, kteří konzumují více na ultra.'},
-        {vs:'GU Energy', text:'Kompletní systém vs. primárně gely. Recovery řada navíc.'},
-        {vs:'Endurance', text:'Italská kvalita a TdF tradice. Mezinárodní reach a know-how vs. lokální značka.'}
-      ]
-    },
-    triatlon: {
-      usp: 'Multisportovní výživa pro plavání, cyklistiku a běh. Kompletní fueling systém pro přechody mezi disciplínami a rychlou regeneraci.',
-      benefits: ['Multisport systém – jeden brand, tři disciplíny', 'Rychlá absorpce gelů mezi disciplínami', 'Izotoniky pro dlouhodobý výkon', 'Po triatlonu – recovery drinky', 'Tour de France + maratonská důvěra v jednom'],
-      diffs: [
-        {vs:'SiS', text:'Kompletní systém včetně recovery. SiS má silný gel, ale slabší recovery řadu.'},
-        {vs:'GU', text:'Systémový přístup – ne jen gely, ale i izotoniky, tyčinky a recovery.'},
-        {vs:'Maurten', text:'Cenově dostupnější při srovnatelném výkonu gelů. Plus tyčinky a recovery navíc.'}
-      ]
-    },
-    vytrvalost: {
-      usp: 'Prémiová sportovní výživa pro každého vytrvalce. Kompletní systém od italského lídra – gely, izotoniky, tyčinky a recovery. Od tréninku po závod, od rána do večera.',
-      benefits: ['Kompletní systém: gely, izotoniky, tyčinky, recovery', 'Tým UAE na Tour de France + Prague Marathon – ověřeno na nejvyšší úrovni', 'Recovery kategorie rostoucí +18 % ročně', 'Více než 40 let italské tradice', 'Eventová komunita CZ/SK (8 Tier 1 eventů)'],
-      diffs: [
-        {vs:'Nutrend', text:'Premium vs. mass-market. Vytrvalostní fokus vs. fitness.'},
-        {vs:'Endurance', text:'Mezinárodní značka s TdF tradicí. Širší sortiment.'},
-        {vs:'Maurten', text:'Kompletní systém za rozumnou cenu. Ne jen elitní gely.'}
-      ]
-    },
-    recovery: {
-      usp: 'Regenerace je polovina výkonu. Enervit recovery systém – proteiny, regenerační nápoje a doplňky pro rychlý návrat do formy. Nejrychleji rostoucí kategorie sportovní výživy.',
-      benefits: ['Recovery = nejrychleji rostoucí kategorie (+18 % YoY)', 'Proteiny, regenerační nápoje, aminokyseliny', 'Post-race recovery po každém eventu', 'Systémový přístup: fueling + recovery = kompletní cyklus', 'Doporučení od profi sportovců'],
-      diffs: [
-        {vs:'Maurten', text:'Maurten nemá recovery produkty. Enervit pokrývá celý cyklus.'},
-        {vs:'Nutrend', text:'Cíleno na vytrvalce, ne na fitness. Premium recovery.'},
-        {vs:'SiS', text:'Širší recovery řada včetně REGO a proteinových shaků.'}
-      ]
-    }
-  },
-  royalbay: {
-    bezci: {
-      usp: 'Medical-grade kompresní oblečení vyrobené v ČR. Ne fashion – funkční produkt s 25+ letou tradicí výrobce ARIES. Podpora nohou při běhu a rychlejší regenerace.',
-      benefits: ['Medical-grade certifikace – medicínsky ověřená komprese', 'Výroba v ČR (ARIES) – 25+ let zkušeností', 'O 20-40 % levnější než Compressport/CEP', 'Energy + Motion řady pro aktivní běh', 'Domácí značka – CZ/SK jazyk, logistika, podpora'],
-      diffs: [
-        {vs:'Compressport', text:'Medical-grade (ne jen fashion). CZ výroba. O 20-40 % lepší cena.'},
-        {vs:'CEP', text:'Srovnatelná medical kvalita za nižší cenu. Domácí pozice v CEE.'},
-        {vs:'STOX Energy', text:'Domácí přítomnost v CEE. Jazyk, logistika, kultura. Nižší cena.'}
-      ]
-    },
-    cyklo: {
-      usp: 'Kompresní oblečení pro cyklisty s medical-grade certifikací. Podpora nohou při dlouhých jízdách, prevence křečí a rychlejší regenerace. Vyrobeno v ČR.',
-      benefits: ['Medical-grade komprese pro nohy při dlouhém sedění', 'Prevence křečí a únavy nohou', 'Recovery po etapách – Therapy řada', 'CZ výroba ARIES – kvalita a tradice', 'Cenově dostupnější než STOX/Compressport'],
-      diffs: [
-        {vs:'Compressport', text:'Medical-grade focus (ne jen sport fashion). CZ výroba.'},
-        {vs:'2XU', text:'Silnější CEE přítomnost. Medical + recovery angle.'},
-        {vs:'STOX', text:'Domácí pozice. Nižší cena. B2B + DTC kanály.'}
-      ]
-    },
-    trail: {
-      usp: 'Komprese pro hory a nerovný terén. Extreme řada – stabilita, odolnost a medical-grade podpora pro trail běžce. Vyrobeno v ČR pro české a slovenské hory.',
-      benefits: ['Extreme řada pro náročný terén a převýšení', 'Stabilita na nerovném povrchu', 'Medical-grade – podpora kloubů a svalů v terénu', 'CZ výroba – odolné materiály', 'Cenově dostupnější než Compressport Trail řada'],
-      diffs: [
-        {vs:'Compressport', text:'Medical-grade focus. Cenově dostupnější. Domácí značka pro CZ/SK trail.'},
-        {vs:'CEP', text:'Trail-specific produkty. Lepší cena. Lokální podpora.'},
-        {vs:'2XU', text:'CEE trail komunita. Jazyk a kultura. Medical certifikace.'}
-      ]
-    },
-    triatlon: {
-      usp: 'Kompresní oblečení pro triatlon – od plavání po běh. Medical-grade podpora v každé disciplíně a rychlejší recovery mezi nimi.',
-      benefits: ['Multi-disciplinární podpora', 'Recovery mezi disciplínami', 'Medical-grade certifikace', 'Motion řada pro flexibilitu', 'CZ výroba – kvalita a dostupnost'],
-      diffs: [
-        {vs:'2XU', text:'Silnější CEE přítomnost a nižší cena při srovnatelné kvalitě.'},
-        {vs:'Compressport', text:'Medical-grade focus. Cenově dostupnější.'},
-        {vs:'CEP', text:'Stejný medical background (medi vs ARIES). Nižší cena.'}
-      ]
-    },
-    vytrvalost: {
-      usp: 'Medical-grade kompresní oblečení pro každého vytrvalce. Výroba v ČR, 25+ let zkušeností. Výkon a recovery v jednom produktu.',
-      benefits: ['Medical-grade certifikace', 'CZ výroba (ARIES) – 25+ let', 'Široké portfolio: Energy, Therapy, Motion, Extreme', 'O 20-40 % levnější než premium konkurence', 'Domácí značka – jazyk, logistika, podpora'],
-      diffs: [
-        {vs:'STOX', text:'Domácí CEE pozice. Nižší cena. B2B + DTC.'},
-        {vs:'Compressport', text:'Medical-grade (ne fashion). CZ výroba. Lepší cena.'},
-        {vs:'CEP', text:'Srovnatelná kvalita za nižší cenu. Lokální dostupnost.'}
-      ]
-    },
-    recovery: {
-      usp: 'Regenerace nohou po výkonu. ROYAL BAY Therapy a Relax řady – medical-grade komprese speciálně pro recovery. Ověřená tradice ARIES v medicínské kompresi.',
-      benefits: ['Therapy řada – cílená recovery komprese', 'Relax řada – domácí použití a odpočinek', 'Medical-grade certifikace', '25+ let v medicínské kompresi', 'Ideální po běhu, cyklistice, triatlonu'],
-      diffs: [
-        {vs:'STOX Recovery', text:'Domácí dostupnost. Nižší cena. Medical background ARIES.'},
-        {vs:'CEP Recovery', text:'Srovnatelná medical kvalita. Lepší cena a dostupnost v CEE.'},
-        {vs:'Compressport', text:'Specializované Therapy a Relax řady – ne jen „recovery verze" sportovních ponožek.'}
-      ]
-    },
-    medical: {
-      usp: 'Medicínsky certifikovaná komprese od ARIES – 25+ let v lékařské kompresi. Graduated, targeted i medical komprese. Pro fyzioterapeuty, rehabilitaci a pacienty.',
-      benefits: ['Medicínská certifikace – není to jen „kompresní oblečení"', 'Graduated, targeted a medical komprese v portfoliu', 'ARIES – 25+ let v lékařské kompresi', 'Výroba v ČR – kvalita a rychlá dostupnost', 'Therapy řada pro rehabilitaci'],
-      diffs: [
-        {vs:'CEP/medi', text:'Srovnatelná medical kvalita. Cenově dostupnější. CZ výroba.'},
-        {vs:'Compressport', text:'Skutečná medical certifikace, ne jen sportovní komprese.'},
-        {vs:'Generic medical', text:'Sportovní design a komfort plus medical funkce.'}
-      ]
-    }
-  }
-};
-
-const CONTEXT_CZ = {
-  enervit: 'Enervit je v CZ/SK konkurenčně silný díky eventové přítomnosti (8 Tier 1 eventů). Největší hrozba: Nutrend (CZ #1 povědomí, nízká cena) a Maurten (inovační leader, rostoucí přítomnost). SK trh je underserved – příležitost.',
-  royalbay: 'ROYAL BAY má unikátní pozici: medical-grade + CZ výroba + cenová dostupnost. V CEE nemá žádný konkurent silný DTC kanál. STOX je benchmark (4,5 M EUR), ale v CEE neoperuje. Shopify migrace = klíč k DTC škálování.'
-};
-
-// Vrati positioning/benefity/diferenciatory v jazyku zvoleneho trhu.
-function langFields(brand, segment, trh){
-  const base = DB[brand][segment];
-  if(trh === 'cz' && CZ[brand] && CZ[brand][segment]) return CZ[brand][segment];
-  return base;
-}
-function langContext(brand, trh){
-  return trh === 'cz' ? CONTEXT_CZ[brand] : CONTEXT[brand];
-}
-
-const CONTEXT = {
-  enervit: 'Enervit je v CZ/SK konkurenčne silný vďaka eventovej prítomnosti (8 Tier 1 eventov). Najväčšia hrozba: Nutrend (CZ #1 povedomie, nízka cena) a Maurten (inovačný leader, rastúca prítomnosť). SK trh je underserved – príležitosť.',
-  royalbay: 'ROYAL BAY má unikátnu pozíciu: medical-grade + CZ výroba + cenová dostupnosť. V CEE nemá žiadny konkurent silný DTC kanál. STOX je benchmark (4,5 M EUR), ale v CEE neoperuje. Shopify migrácia = kľúč k DTC škálovaniu.'
-};
+const VARIANTS = [
+  {k:'A', name:'Brandový', desc:'Taliansky/český pôvod, tradícia, kompletný systém. Pre ľudí, ktorí značku ešte nepoznajú.'},
+  {k:'B', name:'Nákupný',  desc:'Doprava, dostupnosť, všetko na jednom mieste. Pre ľudí, ktorí už vedia čo chcú a rozhodujú sa kde.'},
+  {k:'C', name:'Dôkazový', desc:'Pogačar, UAE Team Emirates, ARIES — overené v praxi. Funguje na profíka aj na začiatočníka.'}
+];
 
 const CHANNELS = ['meta','google','email','web'];
 const CHANNEL_LABELS = {meta:'Meta (FB + IG)', google:'Google Ads', email:'Email', web:'Web / landing page'};
+
+const DATA = {
+  enervit: {
+    cz: {
+      positioning: 'Kompletní sportovní výživa s italskou tradicí – gely, izotoniky, tyčinky i recovery na jednom místě. Více než 40 let zkušeností a stejná výživa, jakou používá tým UAE na Tour de France. Funguje na Grand Tour i na tvé první desítce.',
+      copy: {
+        meta: {
+          A: 'Víc než 40 let italské tradice. Gely, izotoniky, tyčinky i recovery – jeden systém od tréninku po regeneraci. Enervit.',
+          B: 'Všechno pro trénink i závod na jednom místě. Většina produktů skladem, expresní doručení. [DOPRAVA]',
+          C: 'Stejná výživa, jakou používá tým UAE na Tour de France. Funguje Pogačarovi i tobě na první desítce. 🇮🇹'
+        },
+        google: {
+          A: 'Enervit – italská sportovní výživa | Gely, izotoniky, tyčinky, recovery | Více než 40 let tradice',
+          B: 'Enervit e-shop | Většina zboží skladem | Expresní doručení | Všechno pro sport na jednom místě | [DOPRAVA]',
+          C: 'Výživa týmu UAE na Tour de France | Ověřeno v Grand Tours | Enervit pro každého, kdo sportuje'
+        },
+        email: {
+          A: 'Enervit dělá sportovní výživu přes 40 let. Gely, izotoniky, tyčinky a recovery, které do sebe zapadají – ať jedeš první desítku nebo maraton.',
+          B: 'Nemusíš objednávat na třech e-shopech. Enervit má výživu pro trénink, závod i regeneraci pohromadě, většinu skladem a s expresním doručením.',
+          C: 'Tým UAE na Tour de France jede na Enervitu. Ta samá řada je i pro tebe – bez ohledu na to, jestli běháš pětku nebo ultra.'
+        },
+        web: {
+          A: 'Fueled by ENERVIT. Italská sportovní výživa už přes 40 let. Kompletní systém od tréninku přes závod až po regeneraci.',
+          B: 'Všechno pro tvůj sport na jednom místě. Většina produktů skladem, expresní doručení, poradenství k výběru. [DOPRAVA]',
+          C: 'Výživa, která pomohla Tadeji Pogačarovi k pěti titulům na Tour de France. A funguje stejně na tvém nedělním výběhu.'
+        }
+      },
+      diffs: [
+        {vs:'Nutrend', text:'Nutrend je fitness-first a mass-market. Enervit je stavěný pro vytrvalost a má za sebou Grand Tours.'},
+        {vs:'Maurten', text:'Maurten stojí 2–3× víc (65–90 Kč/gel) a nabízí jen gely a nápoje. Enervit pokrývá celý cyklus včetně recovery.'},
+        {vs:'GU / SiS / PowerBar', text:'Žádný z nich nemá v CZ/SK eventovou přítomnost ani lokální tým. Enervit je na osmi Tier 1 eventech.'}
+      ]
+    },
+    sk: {
+      positioning: 'Kompletná športová výživa s talianskou tradíciou – gély, izotoniky, tyčinky aj recovery na jednom mieste. Viac ako 40 rokov skúseností a rovnaká výživa, akú používa tím UAE na Tour de France. Funguje na Grand Tour aj na tvojej prvej desiatke.',
+      copy: {
+        meta: {
+          A: 'Viac ako 40 rokov talianskej tradície. Gély, izotoniky, tyčinky aj recovery – jeden systém od tréningu po regeneráciu. Enervit.',
+          B: 'Všetko na tréning aj preteky na jednom mieste. Väčšina produktov skladom, expresné doručenie. [DOPRAVA]',
+          C: 'Rovnaká výživa, akú používa tím UAE na Tour de France. Funguje Pogačarovi aj tebe na prvej desiatke. 🇮🇹'
+        },
+        google: {
+          A: 'Enervit – talianska športová výživa | Gély, izotoniky, tyčinky, recovery | Viac ako 40 rokov tradície',
+          B: 'Enervit e-shop | Väčšina tovaru skladom | Expresné doručenie | Všetko pre šport na jednom mieste | [DOPRAVA]',
+          C: 'Výživa tímu UAE na Tour de France | Overené v Grand Tours | Enervit pre každého, kto športuje'
+        },
+        email: {
+          A: 'Enervit robí športovú výživu vyše 40 rokov. Gély, izotoniky, tyčinky a recovery, ktoré do seba zapadajú – či ideš prvú desiatku alebo maratón.',
+          B: 'Nemusíš objednávať na troch e-shopoch. Enervit má výživu na tréning, preteky aj regeneráciu pokope, väčšinu skladom a s expresným doručením.',
+          C: 'Tím UAE na Tour de France ide na Enervite. Tá istá rada je aj pre teba – bez ohľadu na to, či bežíš päťku alebo ultra.'
+        },
+        web: {
+          A: 'Fueled by ENERVIT. Talianska športová výživa už vyše 40 rokov. Kompletný systém od tréningu cez preteky až po regeneráciu.',
+          B: 'Všetko pre tvoj šport na jednom mieste. Väčšina produktov skladom, expresné doručenie, poradenstvo pri výbere. [DOPRAVA]',
+          C: 'Výživa, ktorá pomohla Tadejovi Pogačarovi k piatim titulom na Tour de France. A funguje rovnako na tvojom nedeľnom výbehu.'
+        }
+      },
+      diffs: [
+        {vs:'Nutrend', text:'Nutrend je fitness-first a mass-market. Enervit je stavaný pre vytrvalosť a má za sebou Grand Tours.'},
+        {vs:'Maurten', text:'Maurten stojí 2–3× viac (65–90 Kč/gél) a ponúka len gély a nápoje. Enervit pokrýva celý cyklus vrátane recovery.'},
+        {vs:'GU / SiS / PowerBar', text:'Žiadny z nich nemá v CZ/SK eventovú prítomnosť ani lokálny tím. Enervit je na ôsmich Tier 1 eventoch.'}
+      ]
+    }
+  },
+
+  royalbay: {
+    cz: {
+      positioning: 'Medical-grade kompresní oblečení vyrobené v ČR. Za ROYAL BAY stojí ARIES s více než 25 lety v lékařské kompresi – věda, ne fashion trend. Podpora nohou při sportu i rychlejší regenerace po něm.',
+      copy: {
+        meta: {
+          A: 'Věda, ne fashion trend. ROYAL BAY – medical-grade komprese vyrobená v ČR. Za ní 25+ let zkušeností z lékařské komprese. 🇨🇿',
+          B: 'Kompletní řady Energy, Motion, Therapy i Extreme. Většina velikostí skladem, expresní doručení. [DOPRAVA]',
+          C: 'Komprese od ARIES – firmy, která 25+ let dělá lékařskou kompresi. Teď i pro tvůj běh, kolo nebo regeneraci.'
+        },
+        google: {
+          A: 'ROYAL BAY | Medical-grade komprese | Vyrobeno v ČR | Věda, ne fashion trend',
+          B: 'ROYAL BAY e-shop | Energy, Motion, Therapy, Extreme | Většina velikostí skladem | [DOPRAVA]',
+          C: 'Komprese od specialistů ARIES | 25+ let v lékařské kompresi | Ověřeno pro sport i regeneraci'
+        },
+        email: {
+          A: 'ROYAL BAY není fashion doplněk. Je to medical-grade komprese vyrobená v ČR firmou ARIES, která lékařskou kompresi dělá přes 25 let.',
+          B: 'Energy na výkon, Therapy na regeneraci, Extreme do terénu. Většinu velikostí máme skladem a pošleme expresně.',
+          C: 'Stejná technologie, jakou ARIES používá v lékařské kompresi – jen v podobě, kterou si obuješ na trénink.'
+        },
+        web: {
+          A: 'ROYAL BAY. Věda, ne fashion trend. Medical-grade komprese vyrobená v ČR, za kterou stojí 25+ let zkušeností ARIES.',
+          B: 'Řady pro výkon i regeneraci: Energy, Motion, Therapy, Extreme. Většina velikostí skladem, expresní doručení. [DOPRAVA]',
+          C: 'ARIES dělá lékařskou kompresi přes 25 let. ROYAL BAY je ta samá odbornost pro sport – od prvního běhu po maraton.'
+        }
+      },
+      diffs: [
+        {vs:'Compressport', text:'Compressport je víc fashion/sport než medical – je to jejich vlastní slabina. ROYAL BAY stojí na 25+ letech lékařské komprese ARIES.'},
+        {vs:'CEP', text:'Srovnatelný medical background (medi vs ARIES), ale CEP je nejdražší na trhu a v CEE má slabé DTC.'},
+        {vs:'STOX', text:'STOX je DTC scale-up s nulovou přítomností v CEE. ROYAL BAY je doma – jazyk, sklad, doprava, servis.'}
+      ]
+    },
+    sk: {
+      positioning: 'Medical-grade kompresné oblečenie vyrobené v ČR. Za ROYAL BAY stojí ARIES s viac ako 25 rokmi v lekárskej kompresii – veda, nie fashion trend. Podpora nôh pri športe aj rýchlejšia regenerácia po ňom.',
+      copy: {
+        meta: {
+          A: 'Veda, nie fashion trend. ROYAL BAY – medical-grade kompresia vyrobená v ČR. Za ňou 25+ rokov skúseností z lekárskej kompresie. 🇨🇿',
+          B: 'Kompletné rady Energy, Motion, Therapy aj Extreme. Väčšina veľkostí skladom, expresné doručenie. [DOPRAVA]',
+          C: 'Kompresia od ARIES – firmy, ktorá 25+ rokov robí lekársku kompresiu. Teraz aj pre tvoj beh, bicykel či regeneráciu.'
+        },
+        google: {
+          A: 'ROYAL BAY | Medical-grade kompresia | Vyrobené v ČR | Veda, nie fashion trend',
+          B: 'ROYAL BAY e-shop | Energy, Motion, Therapy, Extreme | Väčšina veľkostí skladom | [DOPRAVA]',
+          C: 'Kompresia od špecialistov ARIES | 25+ rokov v lekárskej kompresii | Overené pre šport aj regeneráciu'
+        },
+        email: {
+          A: 'ROYAL BAY nie je fashion doplnok. Je to medical-grade kompresia vyrobená v ČR firmou ARIES, ktorá lekársku kompresiu robí vyše 25 rokov.',
+          B: 'Energy na výkon, Therapy na regeneráciu, Extreme do terénu. Väčšinu veľkostí máme skladom a pošleme expresne.',
+          C: 'Rovnaká technológia, akú ARIES používa v lekárskej kompresii – len v podobe, ktorú si obuješ na tréning.'
+        },
+        web: {
+          A: 'ROYAL BAY. Veda, nie fashion trend. Medical-grade kompresia vyrobená v ČR, za ktorou stojí 25+ rokov skúseností ARIES.',
+          B: 'Rady pre výkon aj regeneráciu: Energy, Motion, Therapy, Extreme. Väčšina veľkostí skladom, expresné doručenie. [DOPRAVA]',
+          C: 'ARIES robí lekársku kompresiu vyše 25 rokov. ROYAL BAY je tá istá odbornosť pre šport – od prvého behu po maratón.'
+        }
+      },
+      diffs: [
+        {vs:'Compressport', text:'Compressport je viac fashion/sport než medical – je to ich vlastná slabina. ROYAL BAY stojí na 25+ rokoch lekárskej kompresie ARIES.'},
+        {vs:'CEP', text:'Porovnateľný medical background (medi vs ARIES), ale CEP je najdrahší na trhu a v CEE má slabé DTC.'},
+        {vs:'STOX', text:'STOX je DTC scale-up s nulovou prítomnosťou v CEE. ROYAL BAY je doma – jazyk, sklad, doprava, servis.'}
+      ]
+    }
+  }
+};
+
+/* Volitelne doladenie pre sport. Prida sa ako zaverecna veta. */
+const SPORTS = {
+  enervit: [
+    {v:'', l:'Univerzálne (bez doladenia)'},
+    {v:'bezci',    l:'Bežci',    cz:'Ať běžíš první desítku nebo maraton.',        sk:'Či bežíš prvú desiatku alebo maratón.'},
+    {v:'cyklo',    l:'Cyklisti', cz:'Na nedělní vyjížďku i na dlouhé kilometry.',  sk:'Na nedeľnú vyjazďku aj na dlhé kilometre.'},
+    {v:'trail',    l:'Trail',    cz:'Do hor, kde se počítá každý gram.',           sk:'Do hôr, kde sa počíta každý gram.'},
+    {v:'triatlon', l:'Triatlon', cz:'Přes všechny tři disciplíny bez výpadku.',    sk:'Cez všetky tri disciplíny bez výpadku.'},
+    {v:'recovery', l:'Recovery', cz:'A hlavně potom, když se tělo dává dohromady.',sk:'A hlavne potom, keď sa telo dáva dokopy.'}
+  ],
+  royalbay: [
+    {v:'', l:'Univerzálne (bez doladenia)'},
+    {v:'bezci',    l:'Bežci',    cz:'Od prvního výběhu po maraton.',        sk:'Od prvého výbehu po maratón.'},
+    {v:'cyklo',    l:'Cyklisti', cz:'Na dlouhé sezení v sedle i po něm.',   sk:'Na dlhé sedenie v sedle aj po ňom.'},
+    {v:'trail',    l:'Trail',    cz:'Do terénu, kde noha nemá rovinu.',     sk:'Do terénu, kde noha nemá rovinu.'},
+    {v:'triatlon', l:'Triatlon', cz:'Napříč všemi třemi disciplínami.',     sk:'Naprieč všetkými tromi disciplínami.'},
+    {v:'recovery', l:'Recovery', cz:'Když nohy potřebují vypnout.',         sk:'Keď nohy potrebujú vypnúť.'},
+    {v:'medical',  l:'Medical',  cz:'Pro rehabilitaci i každodenní oporu.', sk:'Pre rehabilitáciu aj každodennú oporu.'}
+  ]
+};
+
 const GOOGLE_NOTE = 'Google Ads: headline max 30 znakov, description max 90. Tento text je koncept — pred nasadením rozsekať na jednotlivé assety.';
 
 const app     = document.getElementById('app');
 const elBrand = document.getElementById('brand');
-const elSeg   = document.getElementById('segment');
 const elTrh   = document.getElementById('trh');
-const elChan  = document.getElementById('channel');
+const elSport = document.getElementById('sport');
 const elOut   = document.getElementById('result');
 const elToast = document.getElementById('toast');
 
-// Poradie a nazvy segmentov. Zobrazia sa len tie, ktore dana znacka naozaj ma —
-// Enervit nema Medical/rehabilitaciu (vyradene 15.8.2026 na odporucanie Adely).
-const SEGMENTS = [
-  {v:'vytrvalost', l:'Značka celkovo (obecné)'},
-  {v:'bezci',      l:'Bežci (cestný beh)'},
-  {v:'cyklo',      l:'Cyklisti'},
-  {v:'trail',      l:'Trail running'},
-  {v:'triatlon',   l:'Triatlon'},
-  {v:'recovery',   l:'Recovery / regenerácia'},
-  {v:'medical',    l:'Medical / rehabilitácia'}
-];
-
 let current = null;
-
-function syncSegments(){
-  const brand = elBrand.value;
-  const prev  = elSeg.value;
-  const avail = SEGMENTS.filter(x => DB[brand] && DB[brand][x.v]);
-  elSeg.innerHTML = avail.map(x => '<option value="' + x.v + '">' + x.l + '</option>').join('');
-  elSeg.value = avail.some(x => x.v === prev) ? prev : avail[0].v;
-}
 
 function esc(s){
   return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
-function labelOf(sel){ return sel.selectedOptions[0].textContent; }
+
+function syncSports(){
+  const brand = elBrand.value, prev = elSport.value;
+  const list = SPORTS[brand];
+  elSport.innerHTML = list.map(s => '<option value="' + s.v + '">' + s.l + '</option>').join('');
+  elSport.value = list.some(s => s.v === prev) ? prev : '';
+}
+
+function sportHook(brand, trh, sportKey){
+  if(!sportKey) return '';
+  const s = SPORTS[brand].find(x => x.v === sportKey);
+  return s ? (s[trh] || '') : '';
+}
+
+function copyText(brand, trh, ch, vk){
+  const base = DATA[brand][trh].copy[ch][vk];
+  const hook = sportHook(brand, trh, elSport.value);
+  return hook ? base + ' ' + hook : base;
+}
 
 function render(){
-  const brand = elBrand.value, segment = elSeg.value, trh = elTrh.value, channel = elChan.value;
-  const d = DB[brand] && DB[brand][segment];
+  const brand = elBrand.value, trh = elTrh.value, sport = elSport.value;
   app.dataset.brand = brand;
 
-  if(!d){
-    elOut.innerHTML = '<div class="panel"><p>Táto kombinácia zatiaľ nemá pripravené copy.</p></div>';
-    current = null;
-    return;
-  }
-
+  const d = DATA[brand][trh];
   const brandName = brand === 'enervit' ? 'Enervit' : 'ROYAL BAY';
   const trhName   = trh === 'cz' ? 'Česko' : 'Slovensko';
-  current = {brand, brandName, segment, segmentName: labelOf(elSeg), trh, trhName, channel, channelName: labelOf(elChan), d};
+  const sportName = elSport.selectedOptions[0] ? elSport.selectedOptions[0].textContent : '';
+  current = {brand, brandName, trh, trhName, sport, sportName};
 
-  const L = langFields(brand, segment, trh);
+  const variantBlocks = VARIANTS.map(v => {
+    const cards = CHANNELS.map(ch => {
+      const txt  = copyText(brand, trh, ch, v.k);
+      const over = ch === 'google' && txt.length > 90;
+      return '<button type="button" class="copy" data-text="' + esc(txt) + '">' +
+               '<span class="ch"><span>' + esc(CHANNEL_LABELS[ch]) + '</span>' +
+               '<span class="count" data-over="' + over + '">' + txt.length + ' znakov</span></span>' +
+               '<span class="tx">' + esc(txt) + '</span>' +
+               (over ? '<span class="limit">' + esc(GOOGLE_NOTE) + '</span>' : '') +
+             '</button>';
+    }).join('');
+    return '<div class="variant">' +
+             '<div class="vhead"><span class="vkey">' + v.k + '</span><span class="vname">' + esc(v.name) + '</span></div>' +
+             '<p class="vdesc">' + esc(v.desc) + '</p>' + cards +
+           '</div>';
+  }).join('');
 
-  const benefits = L.benefits
-    .map((b,i) => '<li><span class="n">' + (i+1) + '</span><span>' + esc(b) + '</span></li>')
-    .join('');
-
-  const diffs = L.diffs
+  const diffs = d.diffs
     .map(x => '<div class="diff"><span class="vs">vs ' + esc(x.vs) + '</span><span>' + esc(x.text) + '</span></div>')
     .join('');
-
-  const copies = CHANNELS.map(ch => {
-    const txt = d.copy[ch] && d.copy[ch][trh];
-    if(!txt) return '';
-    const active = ch === channel;
-    const over = ch === 'google' && txt.length > 90;
-    return '<button type="button" class="copy" data-active="' + active + '" data-text="' + esc(txt) + '">' +
-             '<span class="ch">' +
-               '<span>' + esc(CHANNEL_LABELS[ch]) + (active ? ' <b>· vybraný kanál</b>' : '') + '</span>' +
-               '<span class="count" data-over="' + over + '">' + txt.length + ' znakov</span>' +
-             '</span>' +
-             '<span class="tx">' + esc(txt) + '</span>' +
-             (over ? '<span class="limit">' + esc(GOOGLE_NOTE) + '</span>' : '') +
-           '</button>';
-  }).join('');
 
   elOut.innerHTML =
     '<div class="panel">' +
       '<div class="panel-head">' +
-        '<p class="combo"><em>' + esc(brandName) + '</em> · ' + esc(current.segmentName) + ' · ' + esc(trhName) + '</p>' +
-        '<span class="combo-sub">Zvýraznený kanál: ' + esc(current.channelName) + '</span>' +
+        '<p class="combo"><em>' + esc(brandName) + '</em> · ' + esc(trhName) + '</p>' +
+        '<span class="combo-sub">' + (sport ? 'Doladené pre: ' + esc(sportName) : 'Univerzálne texty — bez športového doladenia') + '</span>' +
       '</div>' +
-      '<p class="note">' + esc(langContext(brand, trh)) + '</p>' +
       '<h2>Positioning</h2>' +
-      '<p class="usp">' + esc(L.usp) + '</p>' +
+      '<p class="usp">' + esc(d.positioning) + '</p>' +
     '</div>' +
-    '<div class="panel"><h2>Benefity</h2><ul class="benefits">' + benefits + '</ul></div>' +
-    '<div class="panel"><h2>Diferenciátory vs konkurencia</h2><div class="diffs">' + diffs + '</div></div>' +
-    '<div class="panel"><h2>Copy — klikni pre skopírovanie</h2><div class="copies">' + copies + '</div></div>';
+    '<div class="panel">' +
+      '<h2>Copy — tri varianty na kanál, klikni pre skopírovanie</h2>' +
+      variantBlocks +
+    '</div>' +
+    '<div class="internal">' +
+      '<h2>Konkurenčný podklad</h2>' +
+      '<p class="warnline">Interné — nepoužívať v copy. Slúži na argumentáciu pri výbere variantu.</p>' +
+      '<div class="diffs">' + diffs + '</div>' +
+    '</div>';
 }
 
 async function toClipboard(text){
-  try{
-    await navigator.clipboard.writeText(text);
-    return true;
-  }catch(e){
+  try{ await navigator.clipboard.writeText(text); return true; }
+  catch(e){
     try{
       const ta = document.createElement('textarea');
-      ta.value = text;
-      ta.setAttribute('readonly','');
-      ta.style.position = 'fixed';
-      ta.style.top = '0';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.select();
+      ta.value = text; ta.setAttribute('readonly','');
+      ta.style.position='fixed'; ta.style.top='0'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
       const ok = document.execCommand('copy');
-      document.body.removeChild(ta);
-      return ok;
+      document.body.removeChild(ta); return ok;
     }catch(e2){ return false; }
   }
 }
@@ -692,62 +480,63 @@ function toast(msg, tone){
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => { elToast.dataset.show = 'false'; }, 2400);
 }
-
 async function copyAndTell(text, okMsg){
   const ok = await toClipboard(text);
-  if(ok) toast(okMsg);
-  else toast('Kopírovanie zlyhalo — text označ myšou a skopíruj ručne.', 'err');
+  toast(ok ? okMsg : 'Kopírovanie zlyhalo — text označ myšou a skopíruj ručne.', ok ? 'ok' : 'err');
 }
 
 function block(trh){
-  const c = current, d = c.d, L = langFields(c.brand, c.segment, trh);
+  const c = current, d = DATA[c.brand][trh];
   const trhName = trh === 'cz' ? 'Česko' : 'Slovensko';
-  return 'USP: ' + c.brandName + ' · ' + c.segmentName + ' · ' + trhName + '\n\n' +
-    L.usp + '\n\n' +
-    'Benefity:\n' + L.benefits.map((b,i) => (i+1) + '. ' + b).join('\n') + '\n\n' +
-    'Diferenciátory:\n' + L.diffs.map(x => 'vs ' + x.vs + ': ' + x.text).join('\n') + '\n\n' +
-    'Copy:\n' + CHANNELS.map(ch => CHANNEL_LABELS[ch] + ': ' + d.copy[ch][trh]).join('\n');
+  let out = c.brandName + ' · ' + trhName + (c.sport ? ' · doladené pre: ' + c.sportName : ' · univerzálne') + '\n\n' +
+    'POSITIONING\n' + d.positioning + '\n\n';
+  VARIANTS.forEach(v => {
+    out += 'VARIANT ' + v.k + ' — ' + v.name.toUpperCase() + '\n' + v.desc + '\n';
+    CHANNELS.forEach(ch => { out += '  ' + CHANNEL_LABELS[ch] + ': ' + copyText(c.brand, trh, ch, v.k) + '\n'; });
+    out += '\n';
+  });
+  out += 'KONKURENČNÝ PODKLAD (interné, nepoužívať v copy)\n' +
+    d.diffs.map(x => 'vs ' + x.vs + ': ' + x.text).join('\n');
+  return out;
 }
 
 function markdown(trh){
-  const c = current, d = c.d, L = langFields(c.brand, c.segment, trh);
+  const c = current, d = DATA[c.brand][trh];
   const trhName = trh === 'cz' ? 'Česko' : 'Slovensko';
-  return '# USP: ' + c.brandName + ' · ' + c.segmentName + ' · ' + trhName + '\n\n' +
-    '## Positioning\n' + L.usp + '\n\n' +
-    '## Benefity\n' + L.benefits.map((b,i) => (i+1) + '. ' + b).join('\n') + '\n\n' +
-    '## Diferenciátory\n' + L.diffs.map(x => '- **vs ' + x.vs + ':** ' + x.text).join('\n') + '\n\n' +
-    '## Copy variácie\n' + CHANNELS.map(ch => '### ' + CHANNEL_LABELS[ch] + '\n> ' + d.copy[ch][trh]).join('\n\n');
+  let out = '# ' + c.brandName + ' · ' + trhName + (c.sport ? ' · ' + c.sportName : ' · univerzálne') + '\n\n' +
+    '## Positioning\n' + d.positioning + '\n\n## Copy\n\n';
+  VARIANTS.forEach(v => {
+    out += '### Variant ' + v.k + ' — ' + v.name + '\n*' + v.desc + '*\n\n';
+    CHANNELS.forEach(ch => { out += '- **' + CHANNEL_LABELS[ch] + ':** ' + copyText(c.brand, trh, ch, v.k) + '\n'; });
+    out += '\n';
+  });
+  out += '## Konkurenčný podklad (interné)\n' + d.diffs.map(x => '- **vs ' + x.vs + ':** ' + x.text).join('\n');
+  return out;
 }
 
-const FOOTNOTE = '\n\n---\n[DOPRAVA] = doplniť podľa aktuálnych podmienok.\n' +
+const FOOTNOTE = '\n\n---\n[DOPRAVA] = doplniť podľa aktuálnych podmienok; tvrdenie „expresné doručenie" potvrdiť.\n' +
   'Google Ads texty sú koncept — headline max 30 znakov, description max 90.\n' +
-  'VITAR Sport · Content & Brand Engine · dáta k 17. 2. 2026\n';
+  'VITAR Sport · Content & Brand Engine · v2 z 20. 8. 2026\n';
 
-elBrand.addEventListener('change', () => { syncSegments(); render(); });
-[elSeg, elTrh, elChan].forEach(el => el.addEventListener('change', render));
+elBrand.addEventListener('change', () => { syncSports(); render(); });
+[elTrh, elSport].forEach(el => el.addEventListener('change', render));
 
 elOut.addEventListener('click', e => {
   const card = e.target.closest('.copy');
-  if(!card) return;
-  copyAndTell(card.dataset.text, 'Skopírované');
+  if(card) copyAndTell(card.dataset.text, 'Skopírované');
 });
 
 document.getElementById('btnAll').addEventListener('click', () => {
-  if(!current) return;
-  copyAndTell(block(current.trh) + FOOTNOTE, 'Celý výstup skopírovaný');
+  if(current) copyAndTell(block(current.trh) + FOOTNOTE, 'Celý výstup skopírovaný');
 });
-
 document.getElementById('btnBoth').addEventListener('click', () => {
-  if(!current) return;
-  copyAndTell(block('cz') + '\n\n' + '='.repeat(40) + '\n\n' + block('sk') + FOOTNOTE, 'CZ + SK skopírované');
+  if(current) copyAndTell(block('cz') + '\n\n' + '='.repeat(46) + '\n\n' + block('sk') + FOOTNOTE, 'CZ + SK skopírované');
 });
-
 document.getElementById('btnMd').addEventListener('click', () => {
-  if(!current) return;
-  copyAndTell(markdown('cz') + '\n\n' + markdown('sk') + FOOTNOTE, 'Markdown (CZ + SK) skopírovaný');
+  if(current) copyAndTell(markdown('cz') + '\n\n' + markdown('sk') + FOOTNOTE, 'Markdown (CZ + SK) skopírovaný');
 });
 
-syncSegments();
+syncSports();
 render();
 </script>
 
